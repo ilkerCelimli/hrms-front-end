@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
-import { Navbar , NavbarBrand ,NavbarToggler,Collapse,Nav,NavItem,NavLink} from 'reactstrap';
-
+import React, { useState , isOpen,toggle } from 'react'
+import { Navbar , NavbarBrand ,NavbarToggler,Collapse,Nav,NavItem,NavLink,UncontrolledDropdown,DropdownToggle,
+DropdownMenu,DropdownItem,} from 'reactstrap';
+import components from './components.css'
 export default function pageNavi() {
 
   const PageNavi = (props) => {
@@ -9,19 +10,8 @@ export default function pageNavi() {
   }
 
   return (
-    <div>
-      <Navbar color ="light" light expand ="md">
-        <NavbarBrand href ="/" id ="NavbarBrand">HRMS Proje</NavbarBrand>
-        <NavbarToggler onclick ={toggle}/>
-        <Collapse isOpen = {isOpen} navbar>
-          <Nav className = "mr-auto" navbar>
-            <NavItem>
-              <NavLink href = "/components"> Components
-              </NavLink>
-              </NavItem>
-          </Nav>
-        </Collapse>
-      </Navbar>
+    <div className ="col" id ="pageNavi">
+     
 
 
     </div>

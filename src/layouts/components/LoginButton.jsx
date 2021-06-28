@@ -6,7 +6,7 @@ export default function button() {
 
     return (
         <div>
-         <button color = "primary" size ="sm" id ="registerButton">Giriş Yap</button>
+         <Button color = "primary" size ="sm">Giriş Yap</Button>
         </div>
     )
 }
