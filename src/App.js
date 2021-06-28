@@ -1,10 +1,10 @@
 import './App.css';
-import PageNavi from './layouts/components/PageNavi'
+import Navi from './layouts/components/Navi'
 function App() {
   return (
     <div className="App">
 
-    <PageNavi/>
+    <Navi/>
 
 
     </div>
