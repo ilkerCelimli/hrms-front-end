@@ -1,6 +1,6 @@
 import './App.css';
 
-import EmployerSidebar from './layouts/components/EmployerSidebar.jsx';
+import EmployerSidebar from './layouts/components/EmployerNavbar.jsx';
 function App() {
   return (
     <div className="App">
