@@ -1,12 +1,12 @@
 import './App.css';
-import Navi from './layouts/components/Navi'
-import AdminSideBar from './layouts/AdminSideBar';
+
+import EmployerSidebar from './layouts/components/EmployerSidebar.jsx';
 function App() {
   return (
     <div className="App">
 
 
-
+    <EmployerSidebar/>
 
     </div>
   );
