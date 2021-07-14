@@ -1,12 +1,13 @@
 import './App.css';
+import EmployerRegisterForm from './layouts/components/forms/EmployerRegisterForm';
 
-import AdminSidebar from './layouts/components/sidebars/AdminSidebar'
+import LoginPage from './pages/LoginPage';
 function App() {
   return (
     <div className="App">
 
 
-    <AdminSidebar/>
+    <EmployerRegisterForm/>
 
     </div>
   );

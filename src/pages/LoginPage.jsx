@@ -1,5 +1,5 @@
 import React from 'react'
-import LoginFormik from '../layouts/components/LoginFormik'
+import LoginForm from '../layouts/components/forms/LoginForm'
 import '../css/pages.css'
 import { Button ,Modal,ModalHeader,ModalBody} from 'reactstrap'
 import {useState} from 'react'
@@ -8,10 +8,14 @@ export default function LoginPage() {
     const [modal ,setModal] = useState(false);
     const toggle = () => setModal(!modal);
 
+    const LoginOnClick = () => {
+        
+    }
+
     return (
         <div className = "LoginDiv">
-            <LoginFormik/>
-         
+            <LoginForm/>
+            <br/>
             <Button className ='login' size ='sm' color ='primary'> Giriş yap.</Button>
             <Modal isOpen = {modal} toggle = {toggle}>
                 <ModalHeader toggle = {toggle}>Kullanıcı türü</ModalHeader> 
