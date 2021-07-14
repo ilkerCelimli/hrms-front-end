@@ -1,7 +1,6 @@
 .LoginDiv{
     align-items: center;
     text-align: center;
-    background-color: aquamarine;    
     justify-content: center;
     min-height: 100vh;
     max-height: 500vh;
@@ -21,3 +20,5 @@
 .navbarBrand{
     margin: 10px;
 }
+
+
