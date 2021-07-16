@@ -1,6 +1,6 @@
 import React from 'react'
 import * as Yup from 'yup'
-import {Formik, useFormik,} from 'formik'
+import { Formik, useFormik,} from 'formik'
 import { Label,Input ,Form,Button} from 'reactstrap'
 
 export default function EmployerRegisterForm() {
@@ -14,12 +14,12 @@ export default function EmployerRegisterForm() {
 
     })
     const EmployerRegisterForm = () => {
-        const formik = useFormik({
+        const employerForm = useFormik({
             initialValues: {
                 email : '',
                 password : '',
                 rePassword :'',
-                website : '',validationSchema,onsubmit:values =>{JSON.stringify(values,null,3)}
+                website : '',validationSchema,onSubmit:values =>{JSON.stringify(values,null,3)}
             }
         })
     }
@@ -31,19 +31,22 @@ export default function EmployerRegisterForm() {
                 <Label> Email</Label> <br/>
 
                <Input name = 'email' placeholder = 'example@example.com'
-               type = {EmployerRegisterForm.email} onChange ={Formik.handleChange} /> <br/>
+               type = 'email' onChange ={Formik.handleChange}
+                value ={Formik.values.email} /> <br/>
 
                <Label> Şifre </Label> <br/>
 
-                <Input name ={EmployerRegisterForm.password} type ='password' onChange = {Formik.handleChange}/> <br/>
+                <Input name ='password' type ='password' onChange = 
+                {Formik.handleChange} value = {Formik.values.password}/> <br/>
 
                 <Label> Şifre</Label> <br/>
 
-                <Input name = {EmployerRegisterForm.rePassword} type ='password' onChange={Formik.handleChange}/> <br/>
+                <Input name = 'repassword' type ='password'
+                 onChange={Formik.handleChange} value ={Formik.values.rePassword}/> <br/>
 
                 <Label>Web site</Label> <br/>
 
-                <Input name = {EmployerRegisterForm.website} onChange = {Formik.handleChange}/>
+                <Input name = 'website' onChange = {Formik.handleChange} value = {Formik.values.website}/>
 
                     <br/>
 
