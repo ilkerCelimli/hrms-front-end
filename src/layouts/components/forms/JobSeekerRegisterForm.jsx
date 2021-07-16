@@ -23,24 +23,24 @@ export default function JobSeekerRegisterForm() {
     return (
         <div>
             
-            <Form onSubmit ={Formik.handleSubmit}>
+            <Form onSubmit ={formik.handleSubmit}>
                 
                 <Label> Email</Label> <br/>
 
                <Input name = 'email' placeholder = 'example@example.com'
-               type = 'email' onChange ={Formik.handleChange} /> <br/>
+               type = 'email' onChange ={formik.handleChange} /> <br/>
 
                <Label> Şifre </Label> <br/>
 
-                <Input name ={formik.password} type ='password' onChange = {Formik.handleChange}/> <br/>
+                <Input name ={formik.password} type ='password' onChange = {formik.handleChange}/> <br/>
 
                 <Label> Şifre</Label> <br/>
 
-                <Input name = 'rePassword' type ='password' onChange={Formik.handleChange}/> <br/>
+                <Input name = 'rePassword' type ='password' onChange={formik.handleChange}/> <br/>
 
                 <Label>Doğum günü</Label> <br/>
 
-                <Input name = 'birtday' onChange = {Formik.handleChange}/>
+                <Input name = 'birtday' onChange = {formik.handleChange}/>
 
                     <br/>
 
