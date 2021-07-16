@@ -23,9 +23,9 @@ export default function AdminSidebar() {
 
 
     return (
-        <div  >
+        <div className ='navbar'  >
         <Navbar color ='light' light expand="md">
-          <NavbarBrand className='navbarBrand' href="/">HRMS</NavbarBrand>
+          <NavbarBrand className='navbarBrand'></NavbarBrand>
           <NavbarToggler onClick={toggle} />
           <Collapse isOpen={isOpen} navbar>
             <Nav className="mr-auto" navbar>

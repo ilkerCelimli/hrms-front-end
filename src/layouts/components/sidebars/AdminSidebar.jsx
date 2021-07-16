@@ -6,10 +6,10 @@ import {FaHome,} from 'react-icons/fa'
 import {FiMonitor} from 'react-icons/fi'
 export default function AdminSidebar() {
     return (
-        <div>
+        <div className = 'sidebar'>
             
-            <SideNav className = 'sidebar'>
-            <SideNav.Toggle />
+            <SideNav>
+            <SideNav.Toggle  />
     <SideNav.Nav defaultSelected="home">
         <NavItem eventKey="home">
             <NavIcon>
