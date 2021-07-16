@@ -8,7 +8,8 @@ const validationSchema = Yup.object({
     password : Yup.string().required("Şifre Zorunlu"),
 })
 
-const LoginForm =() => {
+export default function LoginForm(){
+
 const {handleSubmit , handleChange,values} = useFormik({
     initialValues : {
         email : '',
@@ -17,10 +18,7 @@ const {handleSubmit , handleChange,values} = useFormik({
     },validationSchema , onSubmit: values => {JSON.stringify(values,4,null);}
 })
 
-    const LoginButtonEvent = () => {
-      
-        console.log(values.email , values.password)
-    }
+    
     return (
         <div>
 
@@ -45,7 +43,7 @@ const {handleSubmit , handleChange,values} = useFormik({
             </FormGroup>
         </Form>
                 <br/>   
-       
+       <Button onSubmit =  {handleSubmit} color = 'primary' size = 'sm'>Giriş yap.</Button>
 
         </div>
     )

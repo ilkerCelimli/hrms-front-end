@@ -10,8 +10,8 @@ const validationSchema = Yup.object({
     nationalIdendity: Yup.string().required("Tc No zorunlu"),
     birtday : Yup.string().required("doğum yılı zorunlu"),
 })
-
-    const EmployerRegisterForm = () =>{
+    export default function JobSeekerRegisterForm() {
+   
         const {handleSubmit , handleChange,values,errors,} = useFormik({
             initialValues :{
                 email: '',

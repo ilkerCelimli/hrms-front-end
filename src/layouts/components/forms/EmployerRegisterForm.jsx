@@ -10,7 +10,8 @@ const validationSchema = Yup.object({
     website: Yup.string().required("web sitesi zorunlu")
 })
 
-    const EmployerRegisterForm = () =>{
+    export default function EmployerRegisterForm(){
+  
         const {handleSubmit , handleChange,values,errors,} = useFormik({
             initialValues :{
                 email: '',
@@ -70,11 +71,11 @@ const validationSchema = Yup.object({
 
                 </FormGroup>
                 </Form>  
-              
+                <Button onSubmit = {handleSubmit} size ='sm' color = 'primary'>Kayıt Ol</Button>
             </div>
         )
     }
 
     
 
-    export default EmployerRegisterForm;
+

@@ -13,7 +13,7 @@ export default function LoginPage() {
         <div className = "LoginDiv">
             <LoginForm/>
             <br/>
-            <Button className ='login' size ='sm' color ='primary'> Giriş yap.</Button>
+          
             <Modal isOpen = {modal} toggle = {toggle}>
                 <ModalHeader toggle = {toggle}>Kullanıcı türü</ModalHeader> 
                 <ModalBody className ='modalBody' >
@@ -27,7 +27,7 @@ export default function LoginPage() {
 
             <br/>
          
-            <div><Button className ='register' size ='sm' color ='primary' onClick ={toggle}> Kayıt ol.</Button></div>
+          
 
         </div>
     )
