@@ -25,7 +25,7 @@ export default function AdminSidebar() {
     return (
         <div>
         <Navbar color="light" light expand="md">
-          <NavbarBrand className='navbarBrand' href="/">reactstrap</NavbarBrand>
+          <NavbarBrand className='navbarBrand' href="/">HRMS</NavbarBrand>
           <NavbarToggler onClick={toggle} />
           <Collapse isOpen={isOpen} navbar>
             <Nav className="mr-auto" navbar>

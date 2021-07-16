@@ -8,10 +8,7 @@ export default function LoginPage() {
     const [modal ,setModal] = useState(false);
     const toggle = () => setModal(!modal);
 
-    const LoginOnClick = () => {
-        
-    }
-
+    
     return (
         <div className = "LoginDiv">
             <LoginForm/>

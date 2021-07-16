@@ -1,55 +1,95 @@
 import React from 'react'
 import * as Yup from 'yup'
-import {Formik, useFormik,} from 'formik'
-import { Label,Input ,Form,Button} from 'reactstrap'
+import {useFormik} from 'formik'
+import { FormGroup,Form,Label,Input } from 'reactstrap'
 
-export default function JobSeekerRegisterForm() {
+const validationSchema = Yup.object({
+    email : Yup.string().email().required("Email doğru biçimde girilmeli"),
+    password : Yup.string().min(2,"Şifre en az 2 karakterden oluşmalı").required("şifre doğru biçimde girilmeli"),
+    rePassword : Yup.string().required("İki şifrede aynı olmalı"),
+    nationalIdendity: Yup.string().required("Tc No zorunlu"),
+    birtday : Yup.string().required("doğum yılı zorunlu"),
+})
 
-    const validationSchema =Yup.object().shape({
-        email: Yup.string().email().required(),
-        password : Yup.string().required(),
-        rePassword : Yup.string().required(),
-        birtday: Yup.string().required(),
-    })
+    const EmployerRegisterForm = () =>{
+        const {handleSubmit , handleChange,values,errors,} = useFormik({
+            initialValues :{
+                email: '',
+                password : '',
+                rePassword : '',
+                nationalIdendity : '',
+                birtday : '',
+            },validationSchema, onSubmit: values => {JSON.stringify(values,4,null);},
+        })  
 
-    const formik = () =>useFormik({
-        initialValues:{
-         email :'',
-         password  : '',
-         rePassword : '',
-         birtday : '',       
-        }
-    })
-    return (
-        <div>
-            
-            <Form onSubmit ={formik.handleSubmit}>
+        return (
+            <div>
+              <Form onSubmit = {handleSubmit}>
+                <FormGroup>
+                    <Label>Email</Label> <br/>
+                    <Input
+                    type = 'text'
+                    name = 'email'
+                    placeholder = 'Example@example.com'
+                    onChange = {handleChange}
+                    values = {values.email}
+                    />
+                </FormGroup>
+
+                <FormGroup>
+                    <Label>Şifre</Label> <br/>
+
+                    <Input
+                    type = 'password'
+                    name ='password'
+                    onChange = {handleChange}
+                    values = {values.password}
+                    />
+
+                </FormGroup>
+
+                <FormGroup>
+                    <Label>Şifre tekrarı</Label> <br/>
+
+                    <Input
+                    type = 'password'
+                    name ='rePassword'
+                    onChange = {handleChange}
+                    values = {values.rePassword}
+                    />
+
+                </FormGroup>
                 
-                <Label> Email</Label> <br/>
+                <FormGroup>
+                    <Label>Tc Kimlik No</Label> <br/>
 
-               <Input name = 'email' placeholder = 'example@example.com'
-               type = 'email' onChange ={formik.handleChange} /> <br/>
+                    <Input
+                    type = 'text'
+                    name ='website'
+                    onChange = {handleChange}
+                    values = {values.nationalIdendity}
+                    />
 
-               <Label> Şifre </Label> <br/>
+                </FormGroup>
 
-                <Input name ={formik.password} type ='password' onChange = {formik.handleChange}/> <br/>
+                <FormGroup>
 
-                <Label> Şifre</Label> <br/>
+                    <Label>
+                        Doğum yılı
+                    </Label>
 
-                <Input name = 'rePassword' type ='password' onChange={formik.handleChange}/> <br/>
+                    <Input
+                     type = 'text'
+                     name = 'birtday'
+                     onChange = {handleChange}
+                     values = {values.birtday}/>
+                </FormGroup>
+                </Form>  
+              
+            </div>
+        )
+    }
 
-                <Label>Doğum günü</Label> <br/>
+    
 
-                <Input name = 'birtday' onChange = {formik.handleChange}/>
-
-                    <br/>
-
-                    <Button color ='primary' >Kayıt ol</Button>
-
-
-            </Form>
-
-
-        </div>
-    )
-}
+    export default EmployerRegisterForm;
