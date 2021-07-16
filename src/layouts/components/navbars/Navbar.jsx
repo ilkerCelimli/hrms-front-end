@@ -12,7 +12,7 @@ import {
     DropdownToggle,
     DropdownMenu,
     DropdownItem,
-    Button
+    Button,Row,Col
     
   } from 'reactstrap';
 
@@ -23,18 +23,29 @@ export default function AdminSidebar() {
 
 
     return (
-        <div>
-        <Navbar color="light" light expand="md">
+        <div  >
+        <Navbar color ='light' light expand="md">
           <NavbarBrand className='navbarBrand' href="/">HRMS</NavbarBrand>
           <NavbarToggler onClick={toggle} />
           <Collapse isOpen={isOpen} navbar>
             <Nav className="mr-auto" navbar>
+              <Row>
+                <Col/> <Col/> <Col/> <Col/> <Col/>
+              </Row>
               <NavItem>
-                <NavLink href="/components/">Admin Panel</NavLink>
+                <NavLink href="/components/" light >İlanlar</NavLink>
               </NavItem>
+
+              <Row>
+                <Col/> <Col/> <Col/> <Col/> <Col/>
+              </Row>
               <NavItem>
                 <NavLink href="/">Profil</NavLink>
               </NavItem>
+
+              <Row>
+                <Col/> <Col/> <Col/> <Col/> <Col/>
+              </Row>
               <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret>
                   Ayarlar

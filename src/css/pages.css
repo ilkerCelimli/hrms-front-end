@@ -1,24 +1,3 @@
-.LoginDiv{
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-    min-height: 100vh;
-    max-height: 500vh;
-    display: flex;
-    flex-direction: column;
-}
 
-.modalBody {
- 
-    text-align: center;
-}
-
-.loginlbl , .loginInput {
-    margin: 10px;
-}
-
-.navbarBrand{
-    margin: 10px;
-}
 
 

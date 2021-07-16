@@ -3,14 +3,14 @@ import SideNav, { Toggle, Nav, NavItem, NavIcon, NavText } from '@trendmicro/rea
 import './sidebar.css'
 import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 import {FaHome,} from 'react-icons/fa'
-import {FiMonitor} from 'react-icons/fi'
+import {FiFolder, FiFilePlus} from 'react-icons/fi'
 export default function AdminSidebar() {
     return (
         <div>
             
             <SideNav className = 'sidebar'>
             <SideNav.Toggle />
-    <SideNav.Nav defaultSelected="home">
+    <SideNav.Nav defaultSelected="home">    
         <NavItem eventKey="home">
             <NavIcon>
             <FaHome size = '2em'/>  
@@ -19,16 +19,21 @@ export default function AdminSidebar() {
                 Home
             </NavText>
         </NavItem>
-        <NavItem eventKey="Adminpanel">
+        <NavItem eventKey="addAdvert">
             <NavIcon>
-                <FiMonitor size = '2em'/>
+                <FiFolder size = '2em'/>
             </NavIcon>
             <NavText>
-                Admin Panel
+                İlan Ekle
                
             </NavText>
-           
+        
             
+        </NavItem>
+
+        <NavItem>
+        <NavText>İlanlarım</NavText>
+        <NavIcon> <FiFilePlus/> </NavIcon>
         </NavItem>
     </SideNav.Nav>
             </SideNav>
