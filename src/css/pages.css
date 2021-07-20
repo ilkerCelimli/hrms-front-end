@@ -1,3 +1,9 @@
-
-
-
+.LoginDiv {
+    align-items: center;
+    text-align: center;
+    float: center;
+    width: 25%;
+    height: 25%;
+    margin-left: 55px;
+    border-left: 55px;
+}

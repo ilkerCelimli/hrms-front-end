@@ -3,7 +3,7 @@ import * as Yup from 'yup'
 import {useFormik,} from 'formik'
 import { Label,Input ,Form,Button,FormGroup} from 'reactstrap'
 
-const validationSchema = Yup.object({
+const validationSchema = Yup.object().shape({
     email : Yup.string().email().required("Email zorunlu"),
     password : Yup.string().required("Şifre Zorunlu"),
 })
@@ -15,11 +15,12 @@ const {handleSubmit , handleChange,values} = useFormik({
         email : '',
         password : '',
 
-    },validationSchema , onSubmit: values => {JSON.stringify(values,4,null);}
+    },validationSchema , onSubmit: values => {console.log(values.email + values.password);}
 })
 
     
     return (
+            
         <div>
 
         <Form onSubmit = {handleChange}>
@@ -49,4 +50,3 @@ const {handleSubmit , handleChange,values} = useFormik({
     )
 
 }
-export default LoginForm
