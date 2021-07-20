@@ -12,42 +12,48 @@ import {
     DropdownToggle,
     DropdownMenu,
     DropdownItem,
-    Button,Row,Col
+    Button,Row,Col, Modal, ModalHeader, ModalBody
     
-  } from 'reactstrap';
+  } from 'reactstrap'; 
+import LoginPage from '../../../pages/LoginPage';
+  import './navbar.css'
 
 export default function AdminSidebar() {
 
     const [isOpen,setIsOpen] = useState(false)
     const toggle = () => setIsOpen(!isOpen)
+    const LoginModal = (props) => {
+      const {
+        buttonLabel,
+        className} = props
 
-
+      }
+      const [modal,setModal] = useState(false)
+      const toggleB = () => setModal(!modal);
+    
+  
     return (
         <div className ='navbar'  >
-        <Navbar color ='light' light expand="md">
-          <NavbarBrand className='navbarBrand'></NavbarBrand>
+        <Navbar light expand="md" className= 'navbar'>
+          <NavbarBrand className='navbar'></NavbarBrand>
           <NavbarToggler onClick={toggle} />
           <Collapse isOpen={isOpen} navbar>
             <Nav className="mr-auto" navbar>
-              <Row>
-                <Col/> <Col/> <Col/> <Col/> <Col/>
-              </Row>
+            
               <NavItem>
-                <NavLink href="/components/" light >İlanlar</NavLink>
+                <NavLink href="/components/" id = 'AdvertLink' className = 'navbar' >İlanlar</NavLink>
               </NavItem>
 
-              <Row>
-                <Col/> <Col/> <Col/> <Col/> <Col/>
-              </Row>
+           
               <NavItem>
-                <NavLink href="/">Profil</NavLink>
+                <NavLink href="/" id = 'profil'>Profil</NavLink>
               </NavItem>
 
-              <Row>
-                <Col/> <Col/> <Col/> <Col/> <Col/>
-              </Row>
+            
+
+              
               <UncontrolledDropdown nav inNavbar>
-                <DropdownToggle nav caret>
+                <DropdownToggle nav caret id = 'settings'>
                   Ayarlar
                 </DropdownToggle>
                 <DropdownMenu right>
@@ -56,9 +62,21 @@ export default function AdminSidebar() {
                    <Button color ='primary' size = 'sm'>Çıkış yap</Button>
                   </DropdownItem>
                   <DropdownItem divider />
-        
+
                 </DropdownMenu>
               </UncontrolledDropdown>
+
+              <Row>
+                <Col/> <Col/> <Col/> <Col/> <Col/> <Col/> 
+               <Button onClick= {toggleB} size ='sm' id = 'login-button' >Giriş yap</Button>
+               <Modal isOpen = {modal} toggle = {toggleB} className = 'navbar-modal'>
+                <ModalHeader toggle = {toggleB}>Kullanıcı Girişi</ModalHeader>
+                <ModalBody>
+                  <LoginPage/>
+                </ModalBody>
+               </Modal>
+              </Row>
+
             </Nav>
             
           </Collapse>

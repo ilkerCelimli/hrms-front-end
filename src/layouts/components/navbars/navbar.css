@@ -1,3 +1,17 @@
 .navbar {
-    background-color: black;
+     background-color: rgb(45, 49, 66);
+    color: white;
+     
+}
+
+
+
+#login-button {
+    background-color: rgb(45, 49, 66);
+    margin-left: 32px;
+
+}
+
+#AdvertLink, #profil ,#settings{
+    color: aliceblue;
 }
