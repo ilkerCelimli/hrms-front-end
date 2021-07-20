@@ -7,9 +7,11 @@ import {FiMonitor} from 'react-icons/fi'
 import { Route } from "react-router";
 import Adminpanel from '../../../pages/Adminpanel.Jsx';
 export default function AdminSidebar() {
+
+   
     return (
         <div>
-            
+         
             <SideNav>
             <SideNav.Toggle  />
     <SideNav.Nav defaultSelected="home">
@@ -22,14 +24,13 @@ export default function AdminSidebar() {
             </NavText>
         </NavItem>
         
-        <Route path  ='/'/>
-        <NavItem eventKey="Adminpanel">
+       
+        <NavItem eventKey="Adminpanel" >
             <NavIcon>
                 <FiMonitor size = '2em'/>
             </NavIcon>
             <NavText>
                 Admin Panel
-               
             </NavText>
            
             
