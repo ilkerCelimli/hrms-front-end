@@ -4,6 +4,8 @@ import './sidebar.css'
 import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 import {FaHome,} from 'react-icons/fa'
 import {FiMonitor} from 'react-icons/fi'
+import { Route } from "react-router";
+import Adminpanel from '../../../pages/Adminpanel.Jsx';
 export default function AdminSidebar() {
     return (
         <div>
@@ -19,6 +21,8 @@ export default function AdminSidebar() {
                 Home
             </NavText>
         </NavItem>
+        
+        <Route path  ='/'/>
         <NavItem eventKey="Adminpanel">
             <NavIcon>
                 <FiMonitor size = '2em'/>

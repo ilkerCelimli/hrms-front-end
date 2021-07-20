@@ -8,21 +8,18 @@ import {useState} from 'react'
 import { Container, Row , Col } from 'reactstrap';
 export default function App() {
 
-  let employer,jobSeeker,Admin,visiter
-  const [isRoles=[employer,jobSeeker,Admin],setIsRoles] = useState(visiter)
+  /* {isRoles === "admin" ? <Admin /> : isRoles === "jobSeeker" ? <JobSeeker /> : <Employer />} */
   
-  function roles (){
-
-    if(isRoles == Admin) return  <AdminSidebar/>
-
-    else if(isRoles==employer) return <EmployerSidebar/>
-
-    else if(isRoles == jobSeeker) return  <JobSeekerSideBar/>
-
-    else return null;
-
-
+  const [isRoles,setIsRoles] = useState(("visiter"))
+  
+  function roles(roles) {
+    if(isRoles === 'jobseeker') {setIsRoles('jobseeker'); return <JobSeekerSideBar/>}
+    else if (isRoles === 'admin') {setIsRoles('admin'); return <AdminSidebar/>}
+    else if (isRoles === 'employer') {setIsRoles('employer'); return <EmployerSidebar/>}
+    else {setIsRoles("visiter"); return null}
   }
+  
+
   return ( 
     <div className="App">
 
@@ -30,7 +27,9 @@ export default function App() {
     <Row id = 'container-row'>
       <Col sm="3">
         
-        {roles()}
+       {roles('visiter')}
+   
+       
       </Col>
       
       <Col>
