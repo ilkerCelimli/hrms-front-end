@@ -37,4 +37,7 @@
   }
 }
 
-
+#container-row{
+  background-color: rgb(45, 49, 66);
+  margin-left: -61px;
+}

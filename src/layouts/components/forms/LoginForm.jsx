@@ -15,7 +15,7 @@ const {handleSubmit , handleChange,values} = useFormik({
         email : '',
         password : '',
 
-    },validationSchema , onSubmit: values => {console.log(values.email + values.password);}
+    },validationSchema , onSubmit: values => {JSON.stringify({Email:values.email , Password : values.password});}
 })
 
     
