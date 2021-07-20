@@ -1,8 +1,9 @@
 import React from 'react'
 import '../css/pages.css'
-import { Button ,Modal,ModalHeader,ModalBody} from 'reactstrap'
+import { Button ,Modal,ModalHeader,ModalBody, Row,Col} from 'reactstrap'
 import {useState} from 'react'
 import LoginForm from '../layouts/components/forms/LoginForm'
+import './pages.css'
 export default function LoginPage() {
 
     const [modal ,setModal] = useState(false);
@@ -10,17 +11,23 @@ export default function LoginPage() {
     
     
     return (
-        <div className = "LoginDiv">
+        <div>
             <LoginForm/> 
-            <Modal isOpen = {modal} toggle = {toggle} className = 'LoginDiv'>
-                <ModalHeader toggle = {toggle}>Kullanıcı türü</ModalHeader> 
-                <ModalBody className ='modalBody' >
+            <Modal isOpen = {modal} toggle = {toggle} className = 'login-div'>
+                <ModalHeader className= 'login-div' toggle = {toggle}>Kullanıcı türü</ModalHeader> 
+              <Row>
+
+                  <Col/>  <Col/>
+              <ModalBody className ='modalBody' >
                     <Button size = 'sm' color ='primary'>İşveren</Button>
                     <br/>
                     <br/>
                     <Button size = 'sm' color ='primary'>İşci adayı</Button>
             
                 </ModalBody>
+              </Row>
+              
+               
             </Modal>
 
             <br/>
