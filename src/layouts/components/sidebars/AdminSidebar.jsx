@@ -13,7 +13,6 @@ export default function AdminSidebar() {
 
       
         <div>
-        <React.Fragment>
             <SideNav >
             <SideNav.Toggle  />
     <SideNav.Nav defaultSelected="home">
@@ -44,10 +43,7 @@ export default function AdminSidebar() {
     </SideNav.Nav>
             </SideNav>
 
-            <main>
-                <Route path = '/adminpanel' component = {Adminpanel}/>
-            </main>
-            </React.Fragment>
+            
         </div>
     )
 }
