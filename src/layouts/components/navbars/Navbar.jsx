@@ -40,12 +40,12 @@ export default function AdminSidebar() {
           <Collapse isOpen={isOpen} navbar>
             <Nav className="mr-auto" navbar>
             
-              <NavItem>
+              <NavItem className = 'navitems'>
                 <NavLink href="/components/" id = 'AdvertLink' className = 'navbar' >İlanlar</NavLink>
               </NavItem>
 
            
-              <NavItem>
+              <NavItem className = 'navitems'>
                 <NavLink href="/" id = 'profil'>Profil</NavLink>
               </NavItem>
 
@@ -53,7 +53,7 @@ export default function AdminSidebar() {
 
               
               <UncontrolledDropdown nav inNavbar>
-                <DropdownToggle nav caret id = 'settings'>
+                <DropdownToggle nav caret id = 'settings' className = "navitems">
                   Ayarlar
                 </DropdownToggle>
                 <DropdownMenu right>
