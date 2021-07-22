@@ -1,10 +1,16 @@
 import React from 'react'
-
-export default function Adminpanel() {
+import {Row,Col} from 'reactstrap'
+export default function AdminPanel() {
     return (
         <div>
-            <br/> <br/> <br/><br/><br/><br/><br/><br/>
-            <h1 style ={{textAlign = 'center'}}> ADMİN PANEL</h1>
+            <Row>
+                <Col md = '10'>
+                <br/> <br/> <br/><br/><br/><br/><br/><br/>
+            <h1> ADMİN PANEL</h1>
+                </Col>
+            </Row>
+           
         </div>
     )
 }
+

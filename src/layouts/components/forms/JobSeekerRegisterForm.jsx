@@ -12,14 +12,14 @@ const validationSchema = Yup.object({
 })
     export default function JobSeekerRegisterForm() {
    
-        const {handleSubmit , handleChange,values,errors,} = useFormik({
+        const {handleSubmit , handleChange,values,} = useFormik({
             initialValues :{
                 email: '',
                 password : '',
                 rePassword : '',
                 nationalIdendity : '',
                 birtday : '',
-            },validationSchema, onSubmit: values => {JSON.stringify(values,4,null);},
+            },validationSchema, onSubmit: values => {JSON.stringify(values,5,null);},
         })  
 
         return (
@@ -65,7 +65,7 @@ const validationSchema = Yup.object({
 
                     <Input
                     type = 'text'
-                    name ='website'
+                    name ='nationalIdendity'
                     onChange = {handleChange}
                     values = {values.nationalIdendity}
                     />

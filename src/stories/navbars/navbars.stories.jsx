@@ -1,7 +1,9 @@
-import react from 'react'
-import AdminSidebar from '../../layouts/components/sidebars/AdminSidebar'
+import AdminSidebar from "../../layouts/components/sidebars/AdminSidebar";
 
 export default {
-    Component : 'AdminSidebar',
     title : 'SideBar',
+    Component : 'AdminSidebar',
+   
 };
+
+export const adminsidebar = () => <AdminSidebar key = 'a'/>
