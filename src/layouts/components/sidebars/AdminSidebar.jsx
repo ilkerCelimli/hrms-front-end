@@ -10,15 +10,7 @@ import {
     Link,Route
   } from "react-router-dom";
  
-  const routes = [
-      {
-          path: "/",
-        
-          exact : false,
 
-          sidebar: () => <AdminPanel/>
-      }
-];
 export default function AdminSidebar() {
   
   
