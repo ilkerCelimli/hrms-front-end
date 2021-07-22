@@ -1,19 +1,29 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import SideNav, {NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
 import './sidebar.css'
 import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 import {FaHome,} from 'react-icons/fa'
 import {FiMonitor} from 'react-icons/fi'
 import AdminPanel from '../../../pages/AdminPanel'
-import {Route, useLocation,useHistory,Router,Link} from 'react-router-dom'
+import {
+    Router,
+    Link,Route
+  } from "react-router-dom";
+ 
+  const routes = [
+      {
+          path: "/",
+        
+          exact : false,
 
-
+          sidebar: () => <AdminPanel/>
+      }
+];
 export default function AdminSidebar() {
   
-   
-
+  
     return ( 
-
+     
         <div>
             <SideNav  >
             <SideNav.Toggle  />  
@@ -33,16 +43,16 @@ export default function AdminSidebar() {
         
        
       
-        <NavItem eventKey = 'adminpanel' >
+        <NavItem eventKey = {<Route path = '/adminpanel' component = {AdminPanel} />}>
 
-         
+        
            
             <NavIcon >
                 <FiMonitor size = '2em'/>
             </NavIcon>
             <NavText >
             
-                Admin Panel
+        Admin Panel
                 </NavText>
             </NavItem>
            
@@ -55,5 +65,6 @@ export default function AdminSidebar() {
           
            
           </div>
+     
     )
 }

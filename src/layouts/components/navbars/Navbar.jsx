@@ -22,12 +22,7 @@ export default function AdminSidebar() {
 
     const [isOpen,setIsOpen] = useState(false)
     const toggle = () => setIsOpen(!isOpen)
-    const LoginModal = (props) => {
-      const {
-        buttonLabel,
-        className} = props
-
-      }
+   
       const [modal,setModal] = useState(false)
       const toggleB = () => setModal(!modal);
     
