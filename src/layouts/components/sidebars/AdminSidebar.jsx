@@ -1,33 +1,28 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import SideNav, {NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
 import './sidebar.css'
+
 import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 import {FaGoodreadsG, FaHome, FaWindows} from 'react-icons/fa'
 import {FiMonitor} from 'react-icons/fi'
 import { createBrowserHistory } from "history";
 import ReactDOM from "react-dom";
 import {
-  Link} from 'react-router-dom'
+  Link, useHistory} from 'react-router-dom'
 export default function AdminSidebar() {
   
-    const [selected,setSelected] = useState();
+    const history = useHistory()
 
-     let  onSelect = (selected) => {
-       setSelected({ selected: selected });
-    };
-   let pageTitle = {
-        'home': 'Home',
-        'adminpanel': ['Admin Panel'],
-      
-    };
+    const routeChange = () => {
 
-   const  navigate = (pathname) => () => {
-        setSelected({ selected: pathname });
-    };
-
+        let path = '/adminpanel';
+        history.push(path)
+    }
+    
     return ( 
      <div>
-            <SideNav onSelect = {onSelect} >
+
+            <SideNav >
             <SideNav.Toggle  />  
     <SideNav.Nav defaultSelected="home">
 
@@ -45,8 +40,7 @@ export default function AdminSidebar() {
         
        
       
-        <NavItem eventKey = 'adminpanel' onClick = {navigate("/adminpanel")}  >
-
+        <NavItem eventKey = 'adminpanel' onClick = {routeChange()}>
      
            
             <NavIcon >

@@ -36,7 +36,7 @@ import AdminPanel from './pages/AdminPanel';
 
         <Switch>
           <Route path = '/#'/>
-          <Route path = '/adminpanel' component = {AdminPanel}/>
+          <Route exact = {true} path = '/adminpanel' component = {AdminPanel}/>
         </Switch>
         </Router>
       </div> 
