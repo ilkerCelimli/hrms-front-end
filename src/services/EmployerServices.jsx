@@ -2,7 +2,9 @@ import axios from 'axios'
 
 export default class EmployerService{
     addEmployer(data) {
-      return  axios.post("http://localhost:8081/api/v1/Employer/v1/insertemployer",data)
+
+     
+      return  axios.post("http://localhost:8081/api/v1/Employer/v1/insertemployer/",data)
     }
 
     getAllEmploer(){
@@ -10,6 +12,6 @@ export default class EmployerService{
     }
 
     addJobAdvert(data) {
-        return axios.post("http://localhost:8081/api/v1/Employer/v1/addJobAdvert",data)
+        return axios.post("http://localhost:8081/api/v1/jobadvert/v1/addjobadvert/1",data)
     }
 }

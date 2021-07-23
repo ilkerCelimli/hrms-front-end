@@ -8,6 +8,7 @@ import {useState} from 'react'
 import { Container, Row , Col } from 'reactstrap';
 import { Route, Switch,BrowserRouter as Router } from 'react-router-dom';
 import AdminPanel from './pages/AdminPanel';
+import AddJobAdvert from './pages/AddJobAdvert';
 
 
 
@@ -30,7 +31,7 @@ import AdminPanel from './pages/AdminPanel';
             <Col>
               <Navbar/>
             </Col>
-          <AdminSidebar/>
+          <AddJobAdvert/>
           </Row>
         </Container>
 
