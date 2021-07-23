@@ -29,10 +29,10 @@ export default function AdminSidebar() {
       
         <NavItem eventKey="home">
             <NavIcon>
-            <FaHome size = '2em'/>  
+            <Link to ='/'><FaHome size = '2em'/>  </Link>
             </NavIcon>
             <NavText title = 'home'>
-                home
+                <Link to ='/'>Anasayfa</Link>
                
             </NavText>
           
@@ -40,14 +40,15 @@ export default function AdminSidebar() {
         
        
       
-        <NavItem eventKey = 'adminpanel' onClick = {routeChange()}>
+        <NavItem eventKey = 'adminpanel'>
      
            
             <NavIcon >
-                <FiMonitor size = '2em'/>
+                
+                <Link to = '/adminpanel'><FiMonitor size = '2em'/></Link>
             </NavIcon>
             <NavText title = 'adminpanel' >
-            Admin Panel
+           <Link to = '/adminpanel'>Admin Paneli</Link>
                 </NavText>
             </NavItem>
            
