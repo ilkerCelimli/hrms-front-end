@@ -1,42 +1,42 @@
-import React from 'react'
+import React, { useState } from 'react'
 import SideNav, {NavItem, NavIcon, NavText } from '@trendmicro/react-sidenav';
 import './sidebar.css'
 import '@trendmicro/react-sidenav/dist/react-sidenav.css';
-import {FaHome} from 'react-icons/fa'
+import {FaGoodreadsG, FaHome, FaWindows} from 'react-icons/fa'
 import {FiMonitor} from 'react-icons/fi'
-import AdminPanel from '../../../pages/AdminPanel'
+import { createBrowserHistory } from "history";
+import ReactDOM from "react-dom";
 import {
-    Router,
-    Link,Route,Switch,NavLink
-  } from "react-router-dom";
- 
-  const routes = [{
-      path : '/home',
-      exact : true,
-      sidebar: () => <AdminSidebar/>,
-      main: () => <AdminSidebar/>
-  },{
-      path : '/adminpanel',
-      exact: true,
-      sidebar: () => <AdminPanel/>,
-      main : () => <AdminPanel/>
-  }
-]
+  Link} from 'react-router-dom'
 export default function AdminSidebar() {
-
   
+    const [selected,setSelected] = useState();
+
+     let  onSelect = (selected) => {
+       setSelected({ selected: selected });
+    };
+   let pageTitle = {
+        'home': 'Home',
+        'adminpanel': ['Admin Panel'],
+      
+    };
+
+   const  navigate = (pathname) => () => {
+        setSelected({ selected: pathname });
+    };
+
     return ( 
      <div>
-            <SideNav  >
+            <SideNav onSelect = {onSelect} >
             <SideNav.Toggle  />  
     <SideNav.Nav defaultSelected="home">
 
       
-        <NavItem eventKey="home" key = 'home'>
+        <NavItem eventKey="home">
             <NavIcon>
             <FaHome size = '2em'/>  
             </NavIcon>
-            <NavText>
+            <NavText title = 'home'>
                 home
                
             </NavText>
@@ -45,16 +45,15 @@ export default function AdminSidebar() {
         
        
       
-        <NavItem key = 'adminpanel' eventKey = 'adminpanel' >
+        <NavItem eventKey = 'adminpanel' onClick = {navigate("/adminpanel")}  >
 
-        
+     
            
             <NavIcon >
                 <FiMonitor size = '2em'/>
             </NavIcon>
-            <NavText >
-            
-            Admin 
+            <NavText title = 'adminpanel' >
+            Admin Panel
                 </NavText>
             </NavItem>
            

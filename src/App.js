@@ -6,7 +6,7 @@ import JobSeekerSideBar from './layouts/components/sidebars/JobSeekerSideBar'
 import Navbar from './layouts/components/navbars/Navbar'
 import {useState} from 'react'
 import { Container, Row , Col } from 'reactstrap';
-import { Route, Switch,Router } from 'react-router-dom';
+import { Route, Switch,BrowserRouter as Router } from 'react-router-dom';
 import AdminPanel from './pages/AdminPanel';
 
 
@@ -20,6 +20,7 @@ import AdminPanel from './pages/AdminPanel';
 
       
       <div className="App">
+        <Router>
         <Container>
           <Row id = 'container-row'>
             <Col sm="3">
@@ -32,10 +33,14 @@ import AdminPanel from './pages/AdminPanel';
           <AdminSidebar/>
           </Row>
         </Container>
+
+        <Switch>
+          <Route path = '/#'/>
+          <Route path = '/adminpanel' component = {AdminPanel}/>
+        </Switch>
+        </Router>
       </div> 
 
      
     );
   } 
-
-
