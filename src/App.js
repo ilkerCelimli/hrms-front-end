@@ -9,6 +9,7 @@ import { Container, Row , Col } from 'reactstrap';
 import { Route, Switch,BrowserRouter as Router } from 'react-router-dom';
 import AdminPanel from './pages/AdminPanel';
 import AddJobAdvert from './pages/AddJobAdvert';
+import LoginForm from './layouts/components/forms/LoginForm';
 
 
 

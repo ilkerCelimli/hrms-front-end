@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import * as Yup from 'yup'
 import {useFormik,} from 'formik'
 import { Label,Input ,Form,Button,FormGroup} from 'reactstrap'
@@ -15,15 +15,16 @@ const {handleSubmit , handleChange,values} = useFormik({
         email : '',
         password : '',
 
-    },validationSchema , onSubmit: values => {JSON.stringify({Email:values.email , Password : values.password});}
+    },validationSchema , onSubmit: values => {console.log(values)}
 })
 
+ 
     
     return (
             
         <div>
 
-        <Form onSubmit = {handleChange}>
+        <Form>
             <FormGroup>
             <Label>Email</Label> <br/>
             <Input 
