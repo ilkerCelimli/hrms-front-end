@@ -61,6 +61,8 @@ export default function AddJobAdvert() {
     const [jobAdverts,setJobAdverts] = useState([]);
     useEffect(()=> {
         let employerService = new EmployerService();
+        values.activeDate = activeDate;
+        values.relaseDate = relaseDate;
         let data = values
         
         employerService.addJobAdvert(values,[]).then(values =>setJobAdverts(data))
@@ -72,11 +74,11 @@ export default function AddJobAdvert() {
         <div>
             
 
-            <Form onSubmit = {handleSubmit}>
+            <Form>
             
                 <FormGroup>
                     <Label>İş Sektörü</Label>
-                    <Input type ='select' name ='businessSector' onChange = {handleChange}>
+                    <Input type ='select' name ='businessSector' onChange = {handleChange} onSubmit = {handleSubmit}>
                         <option>Yazılım Mühendisliği</option>
                         <option>Back End developer</option>
                         <option>Front end Developer</option>
