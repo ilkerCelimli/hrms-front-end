@@ -5,7 +5,6 @@ import * as Yup from 'yup'
 import "react-datepicker/dist/react-datepicker.css";
 import DatePicker from "react-datepicker";
 import EmployerService from '../services/EmployerServices';
-import { useParams } from 'react-router-dom';
 
 
 
@@ -25,10 +24,13 @@ const validationSchema = Yup.object().shape({
 }) 
 
 export default function AddJobAdvert() {
-    const [jobAdverts,setJobAdverts] = useState([]);
+  
+ 
+    
     const {handleChange,values,handleSubmit} = useFormik({
         initialValues:{
             businessSector : '',
+            relaseDate : '',
            activeDate : '',
            openPosition :'',
            minSalary : '',
@@ -41,22 +43,36 @@ export default function AddJobAdvert() {
            
 
             
-        } ,validationSchema ,onSubmit : values =>(JSON.stringify(values,7,null))
+        } ,validationSchema ,onSubmit : values =>({
+            businessSector : values.businessSector,
+            relaseDate: values.relaseDate,
+            activeDate : values.activeDate,
+            openPosition : values.openPosition,
+            minSalary : values.minSalary,
+            maxSalary: values.maxSalary,
+            active: values.maxSalary,
+            desciription : values.desciription,
+            cityName: values.cityName,
+            workType : values.workType
+        })
     })
     const [relaseDate,setRelaseDate] = useState(new Date());
     const[activeDate,setActiveDate] = useState(new Date());
+    const [jobAdverts,setJobAdverts] = useState([]);
     useEffect(()=> {
         let employerService = new EmployerService();
+        let data = values
+        
+        employerService.addJobAdvert(values,[]).then(values =>setJobAdverts(data))
 
-        employerService.addJobAdvert(values).then(result => setJobAdverts(result.data.data))
+    
         
-        
-    })
+    },[])
     return (
         <div>
             
 
-            <Form>
+            <Form onSubmit = {handleSubmit}>
             
                 <FormGroup>
                     <Label>İş Sektörü</Label>
@@ -69,17 +85,17 @@ export default function AddJobAdvert() {
                 
                 <FormGroup>
                     <Label>İlan tarihi</Label>
-                    <DatePicker selected = {relaseDate} onChange = {(date) => setRelaseDate(date)} onChange = {handleChange}/>
+                    <DatePicker selected = {relaseDate} onChange = {(date) => setRelaseDate(date)}/>
                 </FormGroup>
 
                 <FormGroup>
                     <Label>Aktiflik tarihi</Label>
-                    <DatePicker selected = {activeDate} onChange = {(date) => setActiveDate(date)} onChange = {handleChange} />
+                    <DatePicker selected = {activeDate} onChange = {(date) => setActiveDate(date)} />
                 </FormGroup>
 
                 <FormGroup>
                     <Label>Açık Pozisyon</Label>
-                    <Input type = 'text' name = 'openPosition' onChange = {handleChange}> </Input>
+                    <Input type = 'text' name = 'openPosition' onChange = {handleChange} value = {values.openPosition} > </Input>
                 </FormGroup>
 
                 <FormGroup>

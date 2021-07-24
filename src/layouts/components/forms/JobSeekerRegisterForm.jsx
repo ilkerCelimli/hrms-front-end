@@ -92,4 +92,3 @@ const validationSchema = Yup.object({
 
     
 
-    export default EmployerRegisterForm;
