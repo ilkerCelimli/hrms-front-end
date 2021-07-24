@@ -52,7 +52,19 @@ export default function AddJobAdvert() {
     const [relaseDate,setRelaseDate] = useState(new Date());
     const[activeDate,setActiveDate] = useState(new Date());
     const [jobAdverts,setJobAdverts] = useState([]);
-  
+    useEffect(()=> {
+       
+
+        let employerService = new EmployerService();
+        values.activeDate = activeDate;
+        values.relaseDate = relaseDate;
+       console.log(values)
+        
+        employerService.addJobAdvert(values,[]).then(data =>setJobAdverts(data))
+ 
+    
+        
+    },[])
    
    
     
@@ -114,19 +126,7 @@ export default function AddJobAdvert() {
                     <Label>İş açıklaması</Label>
                     <Input type = 'text' name = 'desciription' onChange = {handleChange} />
                 </FormGroup>
-                <Button color ='primary' onClick = {useEffect(()=> {
-       
-
-       let employerService = new EmployerService();
-       values.activeDate = activeDate;
-       values.relaseDate = relaseDate;
-      console.log(values)
-       
-       employerService.addJobAdvert(values,[]).then(data =>setJobAdverts(data))
-
-   
-       
-   },[])}type = 'submit' >Kaydet</Button>
+                <Button color ='primary' onSubmit = {handleSubmit}>Kaydet</Button>
             </Form> 
 
         </div>
