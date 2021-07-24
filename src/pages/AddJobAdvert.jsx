@@ -1,4 +1,4 @@
-import { useFormik } from 'formik'
+import { Formik, useFormik } from 'formik'
 import React ,{useState,useEffect} from 'react'
 import { Form, FormGroup, Input, Label,Button } from 'reactstrap'
 import * as Yup from 'yup'
@@ -8,26 +8,26 @@ import EmployerService from '../services/EmployerServices';
 
 
 
-const validationSchema = Yup.object().shape({
-    businessSector: Yup.string().required("İş kolu zorunludur."),
-    activeDate: Yup.date().required("Aktiflik süresi zorunludur."),
-    relaseDate:Yup.date().required("Çıkış tarihi zorunludur"),
-    
-    openPosition: Yup.string().required("Açık pozisyon sayısı zorunludur"),
-    minSalary : Yup.string().required("Minimum maaş zorunludur."),
-    maxSalary : Yup.string().required("Maksimum maaş zorunludur"),
-    desciription: Yup.string().required("Açıklama zorunludur"),
-    workType : Yup.string().required("Çalışma şekli zorunludur."),
-    city : Yup.string().required("Şehir Boş geçilemez.")
-    
 
-}) 
 
 export default function AddJobAdvert() {
-  
+    const validationSchema = Yup.object().shape({
+        businessSector: Yup.string().required("İş kolu zorunludur."),
+        activeDate: Yup.date().required("Aktiflik süresi zorunludur."),
+        relaseDate:Yup.date().required("Çıkış tarihi zorunludur"),
+        
+        openPosition: Yup.string().required("Açık pozisyon sayısı zorunludur"),
+        minSalary : Yup.string().required("Minimum maaş zorunludur."),
+        maxSalary : Yup.string().required("Maksimum maaş zorunludur"),
+        desciription: Yup.string().required("Açıklama zorunludur"),
+        workType : Yup.string().required("Çalışma şekli zorunludur."),
+        city : Yup.string().required("Şehir Boş geçilemez.")
+        
+    
+    }) 
  
     
-    const {handleChange,values,handleSubmit} = useFormik({
+    const formik = useFormik({
         initialValues:{
             businessSector : '',
             relaseDate : '',
@@ -43,18 +43,9 @@ export default function AddJobAdvert() {
            
 
             
-        } ,validationSchema ,onSubmit : values =>({
-            businessSector : values.businessSector,
-            relaseDate: values.relaseDate,
-            activeDate : values.activeDate,
-            openPosition : values.openPosition,
-            minSalary : values.minSalary,
-            maxSalary: values.maxSalary,
-            active: values.maxSalary,
-            desciription : values.desciription,
-            cityName: values.cityName,
-            workType : values.workType
-        })
+        } ,validationSchema ,onSubmit : values =>(
+            console.log(values)
+        )
     })
     const [relaseDate,setRelaseDate] = useState(new Date());
     const[activeDate,setActiveDate] = useState(new Date());
@@ -63,9 +54,9 @@ export default function AddJobAdvert() {
         let employerService = new EmployerService();
         values.activeDate = activeDate;
         values.relaseDate = relaseDate;
-        let data = values
+        console.log(values)
         
-        employerService.addJobAdvert(values,[]).then(values =>setJobAdverts(data))
+        employerService.addJobAdvert(values,[]).then(data =>setJobAdverts(data))
 
     
         
@@ -74,11 +65,11 @@ export default function AddJobAdvert() {
         <div>
             
 
-            <Form>
+            <Form >
             
                 <FormGroup>
                     <Label>İş Sektörü</Label>
-                    <Input type ='select' name ='businessSector' onChange = {handleChange} onSubmit = {handleSubmit}>
+                    <Input type ='select' name ='businessSector' onChange = {formik.handleChange} value = {formik.values.businessSector}>
                         <option>Yazılım Mühendisliği</option>
                         <option>Back End developer</option>
                         <option>Front end Developer</option>
@@ -87,23 +78,23 @@ export default function AddJobAdvert() {
                 
                 <FormGroup>
                     <Label>İlan tarihi</Label>
-                    <DatePicker selected = {relaseDate} onChange = {(date) => setRelaseDate(date)}/>
+                    <DatePicker selected = {relaseDate} onChange = {(date) => setRelaseDate(date)} value = {formik.values.relaseDate}/>
                 </FormGroup>
 
                 <FormGroup>
                     <Label>Aktiflik tarihi</Label>
-                    <DatePicker selected = {activeDate} onChange = {(date) => setActiveDate(date)} />
+                    <DatePicker selected = {activeDate} onChange = {(date) => setActiveDate(date)} value = {formik.values.activeDate} />
                 </FormGroup>
 
                 <FormGroup>
                     <Label>Açık Pozisyon</Label>
-                    <Input type = 'text' name = 'openPosition' onChange = {handleChange} value = {values.openPosition} > </Input>
+                    <Input type = 'text' name = 'openPosition' onChange = {formik.handleChange} value = {formik.values.openPosition} > </Input>
                 </FormGroup>
 
                 <FormGroup>
                     <Label>Minimum - Maksimum Fiyat</Label>
-                    <Input type = 'text' name = 'minSalary' placeholder = 'Minimum fiyat' onChange = {handleChange}/>
-                    <Input type = 'text' name ='maxSalary' placeholder = 'Maksimum fiyat' onChange = {handleChange}/>
+                    <Input type = 'text' name = 'minSalary' placeholder = 'Minimum fiyat' onChange = {formik.handleChange}/>
+                    <Input type = 'text' name ='maxSalary' placeholder = 'Maksimum fiyat' onChange = {formik.handleChange}/>
                 </FormGroup>
 
                 <FormGroup>
