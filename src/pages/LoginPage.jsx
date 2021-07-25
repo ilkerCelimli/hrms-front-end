@@ -4,6 +4,7 @@ import { Button ,Modal,ModalHeader,ModalBody, Row,Col} from 'reactstrap'
 import {useState} from 'react'
 import LoginForm from '../layouts/components/forms/LoginForm'
 import './pages.css'
+import { Link } from 'react-router-dom'
 
 export default function LoginPage() {
 
@@ -20,11 +21,11 @@ export default function LoginPage() {
 
                   <Col/>  <Col/>
               <ModalBody className ='modalBody' >
-                    <Button size = 'sm' color ='primary' >İşveren</Button>
+                    <Button size = 'sm' color ='dark' onClick = {() => {setModal(false);}} ><Link to ='/employerRegister'> İşveren </Link> </Button>
                     
                     <br/>
                     <br/>
-                    <Button size = 'sm' color ='primary'    >İşci adayı</Button>
+                    <Button size = 'sm' color ='dark' onClick = {() => {setModal(false);}} ><Link to = '/jobseekerRegister'>İşci</Link></Button>
             
                 </ModalBody>
               </Row>
@@ -34,7 +35,7 @@ export default function LoginPage() {
 
             <br/>
             
-         <Button onClick = {toggle} color = 'primary' size ='sm'> Kayıt Ol</Button>
+         <Button onClick = {toggle} color = 'dark' size ='sm' > Kayıt Ol</Button>
             <br/>
           
          

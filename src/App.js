@@ -10,7 +10,8 @@ import { Route, Switch,BrowserRouter as Router } from 'react-router-dom';
 import AdminPanel from './pages/AdminPanel';
 import AddJobAdvert from './pages/AddJobAdvert';
 import LoginForm from './layouts/components/forms/LoginForm';
-
+import JobSeekerRegisterForm from './layouts/components/forms/JobSeekerRegisterForm';
+import EmployerRegisterForm from './layouts/components/forms/EmployerRegisterForm';
 
 
   /* {isRoles === "admin" ? <Admin /> : isRoles === "jobSeeker" ? <JobSeeker /> : <Employer />} */
@@ -32,13 +33,18 @@ import LoginForm from './layouts/components/forms/LoginForm';
             <Col>
               <Navbar/>
             </Col>
-          <AddJobAdvert/>
+          
           </Row>
         </Container>
 
         <Switch>
           <Route path = '/#'/>
           <Route exact = {true} path = '/adminpanel' component = {AdminPanel}/>
+        </Switch>
+
+        <Switch>
+          <Route exact path = '/employerRegister' component = {EmployerRegisterForm}/>
+          <Route exact path = '/jobseekerRegister' component = {JobSeekerRegisterForm}/>
         </Switch>
         </Router>
       </div> 

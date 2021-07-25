@@ -5,7 +5,7 @@ import * as Yup from 'yup'
 import "react-datepicker/dist/react-datepicker.css";
 import DatePicker from "react-datepicker";
 import EmployerService from '../services/EmployerServices';
-
+import {useHistory} from 'react-router-dom'
 
 
 
@@ -53,24 +53,7 @@ export default function AddJobAdvert() {
     const [relaseDate,setRelaseDate] = useState(new Date());
     const[activeDate,setActiveDate] = useState(new Date());
     const [status,setStatus] = useState(false)
-   
-
-    
-
-   useEffect(() => {
-     setStatus(true)
-    if(status == true) {
-        values.activeDate = activeDate
-        values.relaseDate = relaseDate
-      
-        employerService.addJobAdvert(values) 
-        setStatus(false);}
-    },[])
-   
-  
-
-   
-
+    const history = useHistory();
     return (
         <div>
             
@@ -79,7 +62,7 @@ export default function AddJobAdvert() {
             
                 <FormGroup>
                     <Label>İş Sektörü</Label>
-                    <Input type ='select' name ='businessSector' onChange = {handleChange} onSubmit = {handleSubmit}>
+                    <Input type ='select' name ='businessSector' onChange = {handleChange}>
                         <option>Yazılım Mühendisliği</option>
                         <option>Back End developer</option>
                         <option>Front end Developer</option>
@@ -129,7 +112,16 @@ export default function AddJobAdvert() {
                     <Label>İş açıklaması</Label>
                     <Input type = 'text' name = 'desciription' onChange = {handleChange}  />
                 </FormGroup>
-                <Button color ='primary' onSubmit = {handleSubmit} type = 'submit' >
+                <Button color ='primary' type = 'submit' onSubmit = {handleSubmit} onClick = {() => {
+                    values.activeDate = activeDate
+                    values.relaseDate = relaseDate
+                            
+                     employerService.addJobAdvert(values) 
+                     history.push('/adminpanel')
+
+                     
+                }}
+               >
                    Kayıt Ol
                 </Button>
             </Form> 

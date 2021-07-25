@@ -29,7 +29,7 @@ const {handleSubmit , handleChange,values} = useFormik({
             <Label>Email</Label> <br/>
             <Input 
             type ='email' placeholder = 'example@example.com'
-            onChange = {handleChange} value = {values.email} name = 'email'
+            onChange = {handleChange} name = 'email'
 
             />
 
@@ -40,7 +40,7 @@ const {handleSubmit , handleChange,values} = useFormik({
             <Label>Şifre</Label> <br/>
             <Input
             type = 'password' name ='password' onChange = {handleChange} 
-            value = {values.password} />
+            />
             
             </FormGroup>
         </Form>

@@ -2,31 +2,41 @@ import React from 'react'
 import * as Yup from 'yup'
 import {useFormik} from 'formik'
 import { FormGroup,Form,Label,Input,Button } from 'reactstrap'
-
-const validationSchema = Yup.object().shape({
-    email : Yup.string().email().required("Email doğru biçimde girilmeli"),
-    password : Yup.string().min(2,"Şifre en az 2 karakterden oluşmalı").required("şifre doğru biçimde girilmeli"),
-    rePassword : Yup.string().required("İki şifrede aynı olmalı"),
-    website: Yup.string().required("web sitesi zorunlu")
+import EmployerService from '../../../services/EmployerServices'
+import { useHistory } from 'react-router-dom'
 
 
-})
 
     
 
 
     export default function EmployerRegisterForm(){
+
+        const validationSchema = Yup.object().shape({
+            userEmail : Yup.string().email().required("Email doğru biçimde girilmeli"),
+            userPassword : Yup.string().min(2,"Şifre en az 2 karakterden oluşmalı").required("şifre doğru biçimde girilmeli"),
+            rePassword : Yup.string().required("İki şifrede aynı olmalı"),
+            employerName :Yup.string().required("Firma adı zorunlu"),
+            employerAdress : Yup.string().required("Adres zorunlu"),
+            employerWebsite: Yup.string().required("web sitesi zorunlu")
+        
+        
+        })
   
-        const {handleSubmit , handleChange,values,errors,} = useFormik({ initialValues,
+        const {handleSubmit , handleChange,values,} = useFormik({
             initialValues :{
-               email: '',
-                password : '',
-                rePassword : '',
-                website : '',
-            },validationSchema,onSubmit : values => {JSON.stringify(values,4,null);},
+              
+        employerAdress: "",
+        employerName: "",
+        employerWebsite: "",
+        rePassword: "",
+        userEmail: "",
+        userPassword: ""
+            },validationSchema : validationSchema,onSubmit : values => {},
 
         })
-
+                let employerService = new EmployerService()
+                const history = useHistory()
         return (
             <div>
               <Form onSubmit = {handleSubmit} >
@@ -34,10 +44,10 @@ const validationSchema = Yup.object().shape({
                     <Label>Email</Label> <br/>
                     <Input
                     type = 'text'
-                    name = 'email'
+                    name = 'userEmail'
                     placeholder = 'Example@example.com'
                     onChange = {handleChange}
-                    values = {values.email}
+         
                     />
                 </FormGroup>
 
@@ -46,9 +56,9 @@ const validationSchema = Yup.object().shape({
 
                     <Input
                     type = 'password'
-                    name ='password'
+                    name ='userPassword'
                     onChange = {handleChange}
-                    values = {values.password}
+              
                     />
 
                 </FormGroup>
@@ -60,24 +70,39 @@ const validationSchema = Yup.object().shape({
                     type = 'password'
                     name ='rePassword'
                     onChange = {handleChange}
-                    values = {values.rePassword}
+             
+      
                     />
-
+                        <FormGroup>
+                            <Label>Firma Adı</Label>
+                            <Input type = 'text' 
+                            onChange = {handleChange}
+                            name = 'employerName'
+                            />
+                        </FormGroup>
                 </FormGroup>
                 
+                    <FormGroup>
+                        <Label>Adres</Label>
+                        <Input onChange = {handleChange} name = 'employerAdress' type = 'text'/>
+                    </FormGroup>
                 <FormGroup>
                     <Label>Website</Label> <br/>
 
                     <Input
                     type = 'text'
-                    name ='website'
+                    name ='employerWebsite'
                     onChange = {handleChange}
-                    values = {values.website}
+           
                     />
 
                 </FormGroup>
                 </Form>  
-                <Button onSubmit = {handleSubmit} size ='sm' color = 'primary'>Kayıt Ol</Button>
+                <Button onSubmit = {handleSubmit} size ='sm' color = 'primary' onClick = {
+                    () => { console.log(values.employerAdress)
+                        employerService.addEmployer(values)
+                    }
+                }>Kayıt Ol</Button>
             </div>
         )
     }
