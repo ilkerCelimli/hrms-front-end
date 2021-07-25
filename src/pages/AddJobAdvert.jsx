@@ -9,7 +9,6 @@ import EmployerService from '../services/EmployerServices';
 
 
 
-
 export default function AddJobAdvert() {
     const validationSchema = Yup.object().shape({
         businessSector: Yup.string().required("İş kolu zorunludur."),
@@ -43,31 +42,35 @@ export default function AddJobAdvert() {
             
         },validationSchema ,onSubmit : values =>(
 
-           console.log(values)
+           console.log(values), values.activeDate = activeDate,
+           values.relaseDate = relaseDate
            
         )
     })
-
+    let employerService = new EmployerService();
+   
 
     const [relaseDate,setRelaseDate] = useState(new Date());
     const[activeDate,setActiveDate] = useState(new Date());
-    const [jobAdverts,setJobAdverts] = useState([]);
-    useEffect(()=> {
-       
+    const [status,setStatus] = useState(false)
+   
 
-        let employerService = new EmployerService();
-        values.activeDate = activeDate;
-        values.relaseDate = relaseDate;
-       console.log(values)
-        
-        employerService.addJobAdvert(values,[]).then(data =>setJobAdverts(data))
- 
     
-        
+
+   useEffect(() => {
+     setStatus(true)
+    if(status == true) {
+        values.activeDate = activeDate
+        values.relaseDate = relaseDate
+      
+        employerService.addJobAdvert(values) 
+        setStatus(false);}
     },[])
    
+  
+
    
-    
+
     return (
         <div>
             
@@ -110,10 +113,10 @@ export default function AddJobAdvert() {
                 <FormGroup>
                     <Label>Çalışma Şekli</Label>
                     <Input type ='select' name ='workType' onChange = {handleChange}>
-                        <option onChange = {handleChange}>Remote</option>
-                        <optionon Change = {handleChange}>Yarı Remote</optionon>
-                        <option onChange = {handleChange}>Tam zamanlı</option>
-                        <option onChange = {handleChange}>Part Time</option>
+                        <option onChange = {handleChange} value = 'Remote'>Remote</option>
+                        <option onChange = {handleChange} value = 'Yarı Remote'>Yarı Remote</option>
+                        <option onChange = {handleChange} value = 'Tam zamanlı'>Tam zamanlı</option>
+                        <option onChange = {handleChange} value = 'Part Time'>Part Time</option>
                     </Input>
                 </FormGroup>
 
@@ -124,9 +127,11 @@ export default function AddJobAdvert() {
 
                 <FormGroup>
                     <Label>İş açıklaması</Label>
-                    <Input type = 'text' name = 'desciription' onChange = {handleChange} />
+                    <Input type = 'text' name = 'desciription' onChange = {handleChange}  />
                 </FormGroup>
-                <Button color ='primary' onSubmit = {handleSubmit}>Kaydet</Button>
+                <Button color ='primary' onSubmit = {handleSubmit} type = 'submit' >
+                   Kayıt Ol
+                </Button>
             </Form> 
 
         </div>
