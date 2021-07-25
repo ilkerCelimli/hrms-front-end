@@ -43,7 +43,7 @@ import { useHistory } from 'react-router-dom'
                 <FormGroup>
                     <Label>Email</Label> <br/>
                     <Input
-                    type = 'text'
+                    type = 'email'
                     name = 'userEmail'
                     placeholder = 'Example@example.com'
                     onChange = {handleChange}
@@ -84,7 +84,7 @@ import { useHistory } from 'react-router-dom'
                 
                     <FormGroup>
                         <Label>Adres</Label>
-                        <Input onChange = {handleChange} name = 'employerAdress' type = 'text'/>
+                        <Input  name = 'employerAdress' type = 'text' onChange = {handleChange}/>
                     </FormGroup>
                 <FormGroup>
                     <Label>Website</Label> <br/>
@@ -99,7 +99,7 @@ import { useHistory } from 'react-router-dom'
                 </FormGroup>
                 </Form>  
                 <Button onSubmit = {handleSubmit} size ='sm' color = 'primary' onClick = {
-                    () => { console.log(values.employerAdress)
+                    () => { console.log(values.userEmail)
                         employerService.addEmployer(values)
                     }
                 }>Kayıt Ol</Button>
