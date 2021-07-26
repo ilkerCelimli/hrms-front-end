@@ -33,7 +33,7 @@ import EmployerRegisterForm from './layouts/components/forms/EmployerRegisterFor
             <Col>
               <Navbar/>
             </Col>
-          
+          <AddJobAdvert/>
           </Row>
         </Container>
 
