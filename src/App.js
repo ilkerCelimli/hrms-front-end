@@ -8,10 +8,8 @@ import {useState} from 'react'
 import { Container, Row , Col } from 'reactstrap';
 import { Route, Switch,BrowserRouter as Router } from 'react-router-dom';
 import AdminPanel from './pages/AdminPanel';
-import AddJobAdvert from './pages/AddJobAdvert';
-import LoginForm from './layouts/components/forms/LoginForm';
-import JobSeekerRegisterForm from './layouts/components/forms/JobSeekerRegisterForm';
-import EmployerRegisterForm from './layouts/components/forms/EmployerRegisterForm';
+import JobSeekerRegisterForm from './layouts/components/forms/JobSeekerForm/JobSeekerRegisterForm'
+import EmployerRegisterForm from './layouts/components/forms/EmployerForm/EmployerRegisterForm';
 
 
   /* {isRoles === "admin" ? <Admin /> : isRoles === "jobSeeker" ? <JobSeeker /> : <Employer />} */
@@ -33,7 +31,7 @@ import EmployerRegisterForm from './layouts/components/forms/EmployerRegisterFor
             <Col>
               <Navbar/>
             </Col>
-          <AddJobAdvert/>
+   
           </Row>
         </Container>
 

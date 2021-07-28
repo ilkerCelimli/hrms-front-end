@@ -4,7 +4,7 @@ import { Form, FormGroup, Input, Label, Button } from "reactstrap";
 import * as Yup from "yup";
 import "react-datepicker/dist/react-datepicker.css";
 import DatePicker from "react-datepicker";
-import EmployerService from "../services/EmployerServices";
+import EmployerService from "../../../../services/EmployerServices";
 import { useHistory } from "react-router-dom";
 
 export default function AddJobAdvert() {

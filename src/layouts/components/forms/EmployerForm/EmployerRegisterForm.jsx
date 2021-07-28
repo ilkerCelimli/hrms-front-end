@@ -2,7 +2,7 @@ import React from "react";
 import * as Yup from "yup";
 import { useFormik } from "formik";
 import { FormGroup, Form, Label, Input, Button } from "reactstrap";
-import EmployerService from "../../../services/EmployerServices";
+import EmployerService from "../../../../services/EmployerServices";
 import { useHistory } from "react-router-dom";
 
 export default function EmployerRegisterForm() {
