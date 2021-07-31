@@ -16,7 +16,7 @@ import AddJobAdvert from './layouts/components/forms/EmployerForm/AddJobAdvertFo
   /* {isRoles === "admin" ? <Admin /> : isRoles === "jobSeeker" ? <JobSeeker /> : <Employer />} */
   
   export default function App() {
-    const [role, setRole] = useState("visiter")
+    const [role, setRole] = useState("ADMIN")
   
     return ( 
 
@@ -26,7 +26,7 @@ import AddJobAdvert from './layouts/components/forms/EmployerForm/AddJobAdvertFo
         <Container>
           <Row id = 'container-row'>
             <Col sm="3">
-              {role === "admin" ? <AdminSidebar/> : role === "jobSeeker" ? <JobSeekerSideBar /> : role === "employer" ? <EmployerSidebar /> : null}
+              {role === "ADMIN" ? <AdminSidebar/> : role === "jobSeeker" ? <JobSeekerSideBar /> : role === "employer" ? <EmployerSidebar /> : null}
             </Col>
          
             <Col>
