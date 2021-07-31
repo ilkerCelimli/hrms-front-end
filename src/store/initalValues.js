@@ -1,1 +1,1 @@
-export const oauth = 'ADMIN'
+export const initialOauth = 'VISITER'
