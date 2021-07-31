@@ -10,6 +10,7 @@ import { Route, Switch,BrowserRouter as Router } from 'react-router-dom';
 import AdminPanel from './pages/AdminPanel';
 import JobSeekerRegisterForm from './layouts/components/forms/JobSeekerForm/JobSeekerRegisterForm'
 import EmployerRegisterForm from './layouts/components/forms/EmployerForm/EmployerRegisterForm';
+import AddJobAdvert from './layouts/components/forms/EmployerForm/AddJobAdvertForm';
 
 
   /* {isRoles === "admin" ? <Admin /> : isRoles === "jobSeeker" ? <JobSeeker /> : <Employer />} */
@@ -31,7 +32,7 @@ import EmployerRegisterForm from './layouts/components/forms/EmployerForm/Employ
             <Col>
               <Navbar/>
             </Col>
-   
+        
           </Row>
         </Container>
 
