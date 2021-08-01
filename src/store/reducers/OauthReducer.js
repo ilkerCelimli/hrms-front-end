@@ -4,9 +4,9 @@ import {
     EmployeeRole,
     EmployerRole
 } from '../actions/RoleActions'
+import { initialRole } from '../InitialStates'
 
-
-const default_role_state = "VISITER"
+const default_role_state = initialRole.Role
 
 const reducer = (state = default_role_state, type) => {
 

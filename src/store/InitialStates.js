@@ -1,4 +1,4 @@
 export const initialRole = {
-    Role:"VISITER",
-  
+    Role: "VISITER",
+
 }

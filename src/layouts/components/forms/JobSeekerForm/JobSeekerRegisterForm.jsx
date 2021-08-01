@@ -2,9 +2,9 @@ import React from "react";
 import * as Yup from "yup";
 import { useFormik } from "formik";
 import { FormGroup, Form, Label, Input, Button } from "reactstrap";
-import { JobSeekerServices } from '../../../../services/JobSeekerServices'
+import { JobSeekerServices } from "../../../../services/JobSeekerServices";
 import { useHistory } from "react-router-dom";
-import '../forms.css'
+import "../forms.css";
 const validationSchema = Yup.object({
   email: Yup.string().email().required("Email doğru biçimde girilmeli"),
   password: Yup.string()
@@ -17,18 +17,15 @@ const validationSchema = Yup.object({
 export default function JobSeekerRegisterForm() {
   const { handleSubmit, handleChange, values } = useFormik({
     initialValues: {
-      birtday : '',
-      jobSeekerAdress : '',
-      jobSeekerName :'',
-      jobSeekerNationalId : '',
-      jobSeekerPhone : '',
-      jobSeekerSurname : '',
-      rePassword : '',
-      userEmail : '',
-      userPassword : ''
-
-
-
+      birtday: "",
+      jobSeekerAdress: "",
+      jobSeekerName: "",
+      jobSeekerNationalId: "",
+      jobSeekerPhone: "",
+      jobSeekerSurname: "",
+      rePassword: "",
+      userEmail: "",
+      userPassword: "",
     },
     validationSchema,
     onSubmit: (values) => {
@@ -38,16 +35,15 @@ export default function JobSeekerRegisterForm() {
   const history = useHistory();
 
   const jobSeekerRegister = () => {
-
     let jobSeekerServices = new JobSeekerServices();
     console.log(values);
-    jobSeekerServices.addJobSeeker(values )
-    history.push("/#")
-  }
+    jobSeekerServices.addJobSeeker(values);
+    history.push("/#");
+  };
 
   return (
     <div>
-      <Form onSubmit={handleSubmit} className = "forms">
+      <Form onSubmit={handleSubmit} className="forms">
         <FormGroup>
           <Label>Email</Label> <br />
           <Input
@@ -70,17 +66,21 @@ export default function JobSeekerRegisterForm() {
 
         <FormGroup>
           <Label>Tc Kimlik No</Label> <br />
-          <Input type="text" name="jobSeekerNationalId" onChange={handleChange} />
+          <Input
+            type="text"
+            name="jobSeekerNationalId"
+            onChange={handleChange}
+          />
         </FormGroup>
 
         <FormGroup>
           <Label>İsim</Label>
-          <Input type = 'text' name = "jobSeekerName" onChange = {handleChange}/>
+          <Input type="text" name="jobSeekerName" onChange={handleChange} />
         </FormGroup>
 
         <FormGroup>
           <Label>Soyisim</Label>
-          <Input type = 'text' name = 'jobSeekerSurname' onChange = {handleChange} />
+          <Input type="text" name="jobSeekerSurname" onChange={handleChange} />
         </FormGroup>
         <FormGroup>
           <Label>Doğum yılı</Label>
@@ -90,18 +90,21 @@ export default function JobSeekerRegisterForm() {
 
         <FormGroup>
           <Label>Adres</Label>
-          <Input type = 'text' name = 'jobSeekerAdress' onChange = {handleChange} />
+          <Input type="text" name="jobSeekerAdress" onChange={handleChange} />
         </FormGroup>
-        
+
         <FormGroup>
           <Label>Telefon Numarası</Label>
-          <Input type = 'text' name = 'jobSeekerPhone' onChange = {handleChange} />
+          <Input type="text" name="jobSeekerPhone" onChange={handleChange} />
         </FormGroup>
         <br />
-        <Button onSubmit={handleChange} size="sm" onClick = {() => {
-           jobSeekerRegister()
-        }}>
-         
+        <Button
+          onSubmit={handleChange}
+          size="sm"
+          onClick={() => {
+            jobSeekerRegister();
+          }}
+        >
           Kayıt ol
         </Button>
       </Form>

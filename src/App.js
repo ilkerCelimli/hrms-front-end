@@ -30,8 +30,8 @@ import {AdminRole,EmployerRole,EmployeeRole} from './store/actions/RoleActions'
           <Row id = 'container-row'>
             <Col sm="3">
             
-            {state == AdminRole ? <AdminSidebar /> : state === EmployeeRole ? <JobSeekerSideBar /> :
-            state == EmployerRole ? <EmployerSidebar /> : null}
+            {state === AdminRole ? <AdminSidebar /> : state === EmployeeRole ? <JobSeekerSideBar /> :
+            state === EmployerRole ? <EmployerSidebar /> : null}
 
             </Col>
          
