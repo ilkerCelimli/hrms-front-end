@@ -11,17 +11,18 @@ import AdminPanel from './pages/AdminPanel';
 import JobSeekerRegisterForm from './layouts/components/forms/JobSeekerForm/JobSeekerRegisterForm'
 import EmployerRegisterForm from './layouts/components/forms/EmployerForm/EmployerRegisterForm';
 import AddJobAdvert from './layouts/components/forms/EmployerForm/AddJobAdvertForm';
-
+import {useSelector} from 'react-redux'
 
   /* {isRoles === "admin" ? <Admin /> : isRoles === "jobSeeker" ? <JobSeeker /> : <Employer />} */
   
   export default function App() {
-    const [role, setRole] = useState("ADMIN")
+
+
+
   
     return ( 
 
-      
-      <div className="App">
+<div className="App">
         <Router>
         <Container>
           <Row id = 'container-row'>
