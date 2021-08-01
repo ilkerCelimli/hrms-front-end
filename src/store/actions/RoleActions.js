@@ -1,20 +1,21 @@
+export const AdminRole = "ADMIN"
+export const EmployerRole = "EMPLOYER"
+export const EmployeeRole = "EMPlOYEE"
 
-export const role = {
-    Admin : 'ADMIN',
-    Employee: 'EMPLOYEE',
-    Employer : "EMPLOYER"
-
+export const AdminOauth = () => {
+    return {
+        type: AdminRole
+    }
 }
 
-export const Admin = () => {
-    type :role.Admin
-    
+export const EmployerOauth = () => {
+    return {
+        type: EmployerRole
+    }
 }
 
-export const Employee= () => {
-    type :role.Employee
-}
-
-export const Employer = () => {
-    type: role.Employer
+export const EmployeeOauth = () => {
+    return {
+        type : EmployeeRole
+    }
 }

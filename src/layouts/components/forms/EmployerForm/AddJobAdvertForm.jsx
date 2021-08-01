@@ -1,5 +1,5 @@
 import { useFormik } from "formik";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Form, FormGroup, Input, Label, Button } from "reactstrap";
 import * as Yup from "yup";
 import "react-datepicker/dist/react-datepicker.css";
@@ -35,8 +35,8 @@ export default function AddJobAdvert() {
     },
     validationSchema,
     onSubmit: (values) => (
-      console.log(values),
-      (values.activeDate = activeDate),
+      console.log(values)
+      (values.activeDate = activeDate)
       (values.relaseDate = relaseDate)
     ),
   });
@@ -46,6 +46,13 @@ export default function AddJobAdvert() {
   const [activeDate, setActiveDate] = useState(new Date());
   const history = useHistory();
   
+  const addJobAdvert = () => {
+    values.activeDate = activeDate;
+    values.relaseDate = relaseDate;
+    console.log(values);
+    employerService.addJobAdvert(values);
+    history.push('/adminpanel')
+  }
   
   return (
     <div>
@@ -84,7 +91,7 @@ export default function AddJobAdvert() {
         <FormGroup>
           <Label>Açık Pozisyon</Label>
           <Input type="text" name="openPosition" onChange={handleChange}>
-            {" "}
+           
           </Input>
         </FormGroup>
 
@@ -136,14 +143,10 @@ export default function AddJobAdvert() {
           type="submit"
           onSubmit={handleSubmit}
           onClick={() => {
-            values.activeDate = activeDate;
-            values.relaseDate = relaseDate;
-            console.log(values);
-            employerService.addJobAdvert(values);
-            //history.push('/adminpanel')
+            addJobAdvert()
           }}
         >
-          Kayıt Ol
+          Kaydet
         </Button>
       </Form>
     </div>

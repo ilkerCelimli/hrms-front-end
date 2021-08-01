@@ -2,6 +2,7 @@ import { useFormik } from 'formik'
 import React, { useState } from 'react'
 import { Form, Label ,Input, FormGroup,Button } from 'reactstrap'
 import * as Yup from 'yup'
+import {JobSeekerServices} from '../../../../services/JobSeekerServices'
 
 
 const validationSchema = Yup.object().shape( {
@@ -20,6 +21,13 @@ export default function AddGithubForm() {
 
     const [id,setId] = useState(0)
 
+    const addGithubForm = () => {
+
+        let jobSeekerService = new JobSeekerServices();
+        setId(2)
+        jobSeekerService.addGithub(values,id)
+    }
+
     return (
         <div>
             
@@ -30,7 +38,7 @@ export default function AddGithubForm() {
               </FormGroup>
               
               <Button type ='submit' onSubmit = {handleSubmit} onClick = {() => {
-                  //Axios kodları.
+              addGithubForm()
               }}> Ekle </Button>
           </Form>
 

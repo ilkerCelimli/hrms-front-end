@@ -4,22 +4,24 @@ import AdminSidebar from './layouts/components/sidebars/AdminSidebar';
 import EmployerSidebar from './layouts/components/sidebars/EmployerSidebar'
 import JobSeekerSideBar from './layouts/components/sidebars/JobSeekerSideBar'
 import Navbar from './layouts/components/navbars/Navbar'
-import {useState} from 'react'
+
 import { Container, Row , Col } from 'reactstrap';
 import { Route, Switch,BrowserRouter as Router } from 'react-router-dom';
 import AdminPanel from './pages/AdminPanel';
 import JobSeekerRegisterForm from './layouts/components/forms/JobSeekerForm/JobSeekerRegisterForm'
 import EmployerRegisterForm from './layouts/components/forms/EmployerForm/EmployerRegisterForm';
-import AddJobAdvert from './layouts/components/forms/EmployerForm/AddJobAdvertForm';
-import {useSelector} from 'react-redux'
 
+import {useSelector} from 'react-redux'
+import {AdminRole,EmployerRole,EmployeeRole} from './store/actions/RoleActions'
   /* {isRoles === "admin" ? <Admin /> : isRoles === "jobSeeker" ? <JobSeeker /> : <Employer />} */
   
   export default function App() {
 
-
+    const state = useSelector(state => state.roles)
 
   
+
+
     return ( 
 
 <div className="App">
@@ -27,7 +29,10 @@ import {useSelector} from 'react-redux'
         <Container>
           <Row id = 'container-row'>
             <Col sm="3">
-              {role === "ADMIN" ? <AdminSidebar/> : role === "jobSeeker" ? <JobSeekerSideBar /> : role === "employer" ? <EmployerSidebar /> : null}
+            
+            {state == AdminRole ? <AdminSidebar /> : state === EmployeeRole ? <JobSeekerSideBar /> :
+            state == EmployerRole ? <EmployerSidebar /> : null}
+
             </Col>
          
             <Col>

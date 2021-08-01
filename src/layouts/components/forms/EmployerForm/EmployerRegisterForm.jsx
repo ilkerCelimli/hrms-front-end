@@ -31,6 +31,13 @@ export default function EmployerRegisterForm() {
   });
   let employerService = new EmployerService();
   const history = useHistory();
+
+  const EmloyerRegister = () => {
+    console.log(values.userEmail);
+          employerService.addEmployer(values);
+          history.push("/#");
+
+  }
   return (
     <div>
       <Form onSubmit={handleSubmit} className = "forms">
@@ -72,9 +79,7 @@ export default function EmployerRegisterForm() {
         size="sm"
         color="primary"
         onClick={() => {
-          console.log(values.userEmail);
-          employerService.addEmployer(values);
-          history.push("/#");
+          EmloyerRegister()
         }}
       >
         Kayıt Ol

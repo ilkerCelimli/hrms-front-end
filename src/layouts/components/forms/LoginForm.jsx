@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react'
+import React from 'react'
 import * as Yup from 'yup'
 import {useFormik,} from 'formik'
 import { Label,Input ,Form,Button,FormGroup} from 'reactstrap'
@@ -45,7 +45,7 @@ const {handleSubmit , handleChange,values} = useFormik({
             </FormGroup>
         </Form>
                 <br/>   
-       <Button onSubmit =  {handleSubmit} color = 'primary' size = 'sm'>Giriş yap.</Button>
+       <Button onSubmit =  {handleSubmit} color = 'primary' size = 'sm' onClick = {() => console.log(values)}>Giriş yap.</Button>
 
         </div>
     )

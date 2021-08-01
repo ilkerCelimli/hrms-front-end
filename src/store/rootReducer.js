@@ -1,10 +1,10 @@
 import { combineReducers } from "redux";
-import OauthReducer from './reducers/OauthReducer'
+import reducer from './reducers/OauthReducer'
 
 
 const rootReducer = combineReducers({
 
-    roles : OauthReducer
+    roles : reducer
 
 })
 

@@ -8,10 +8,6 @@ import {
     Nav,
     NavItem,
     NavLink,
-    UncontrolledDropdown,
-    DropdownToggle,
-    DropdownMenu,
-    DropdownItem,
     Button,Row,Col, Modal, ModalHeader, ModalBody
     
   } from 'reactstrap'; 

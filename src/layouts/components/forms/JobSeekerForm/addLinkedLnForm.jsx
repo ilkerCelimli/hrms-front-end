@@ -2,7 +2,7 @@ import { useFormik } from 'formik'
 import React, { useState } from 'react'
 import { Form, Label ,Input, FormGroup,Button } from 'reactstrap'
 import * as Yup from 'yup'
-
+import {JobSeekerServices} from '../../../../services/JobSeekerServices'
 
 const validationSchema = Yup.object().shape( {
     jobSeekerLinkedlnAdress : Yup.string().required("linkedln adresi zorunlu")
@@ -20,6 +20,14 @@ export default function AddGithubForm() {
 
     const [id,setId] = useState(0)
 
+
+    const addLinkedLnForm = () => {
+    
+        let jobSeekerService = new JobSeekerServices();
+        setId(2)
+        jobSeekerService.addLinkedLn(values,id)
+    }
+
     return (
         <div>
             
@@ -30,7 +38,7 @@ export default function AddGithubForm() {
               </FormGroup>
               
               <Button type ='submit' onSubmit = {handleSubmit} onClick = {() => {
-                  //Axios kodları.
+               addLinkedLnForm();
               }}> Ekle </Button>
           </Form>
 

@@ -36,7 +36,15 @@ export default function JobSeekerRegisterForm() {
     },
   });
   const history = useHistory();
-  let jobSeekerServices = new JobSeekerServices();
+
+  const jobSeekerRegister = () => {
+
+    let jobSeekerServices = new JobSeekerServices();
+    console.log(values);
+    jobSeekerServices.addJobSeeker(values )
+    history.push("/#")
+  }
+
   return (
     <div>
       <Form onSubmit={handleSubmit} className = "forms">
@@ -91,11 +99,9 @@ export default function JobSeekerRegisterForm() {
         </FormGroup>
         <br />
         <Button onSubmit={handleChange} size="sm" onClick = {() => {
-              console.log(values);
-              jobSeekerServices.addJobSeeker(values )
-              history.push("/#")
+           jobSeekerRegister()
         }}>
-          {" "}
+         
           Kayıt ol
         </Button>
       </Form>
