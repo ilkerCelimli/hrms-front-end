@@ -24,11 +24,11 @@ export default function AdminSidebar() {
           <NavItem eventKey="home">
             <NavIcon>
               <Link to="/">
-                <FaHome size="2em" />{" "}
+                <FaHome size="2em"  />
               </Link>
             </NavIcon>
             <NavText title="home">
-              <Link to="/">Anasayfa</Link>
+              <Link to="/" style = {{textDecoration:"none"}}>Anasayfa</Link>
             </NavText>
           </NavItem>
 
@@ -39,7 +39,7 @@ export default function AdminSidebar() {
               </Link>
             </NavIcon>
             <NavText title="adminpanel">
-              <Link to="/adminpanel">Admin Paneli</Link>
+              <Link to="/adminpanel" style = {{textDecoration :"none"}}>Admin Paneli</Link>
             </NavText>
           </NavItem>
         </SideNav.Nav>

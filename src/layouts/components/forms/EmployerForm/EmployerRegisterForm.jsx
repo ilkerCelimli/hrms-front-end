@@ -4,7 +4,7 @@ import { useFormik } from "formik";
 import { FormGroup, Form, Label, Input, Button } from "reactstrap";
 import EmployerService from "../../../../services/EmployerServices";
 import { useHistory } from "react-router-dom";
-
+import '../forms.css'
 export default function EmployerRegisterForm() {
   const validationSchema = Yup.object().shape({
     userEmail: Yup.string().email().required("Email doğru biçimde girilmeli"),
@@ -33,7 +33,7 @@ export default function EmployerRegisterForm() {
   const history = useHistory();
   return (
     <div>
-      <Form onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit} className = "forms">
         <FormGroup>
           <Label>Email</Label> <br />
           <Input

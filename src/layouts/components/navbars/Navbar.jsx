@@ -36,31 +36,18 @@ export default function AdminSidebar() {
             <Nav className="mr-auto" navbar>
             
               <NavItem className = 'navitems'>
-                <NavLink href="/components/" id = 'AdvertLink' className = 'navbar' >İlanlar</NavLink>
+                <NavLink href="/#" id = 'AdvertLink' className = 'navbar' >İlanlar</NavLink>
               </NavItem>
 
            
               <NavItem className = 'navitems'>
-                <NavLink href="/" id = 'profil'>Profil</NavLink>
+                <NavLink href="/#" id = 'profil'>Profil</NavLink>
               </NavItem>
 
             
 
               
-              <UncontrolledDropdown nav inNavbar>
-                <DropdownToggle nav caret id = 'settings' className = "navitems">
-                  Ayarlar
-                </DropdownToggle>
-                <DropdownMenu right>
-                
-                  <DropdownItem>
-                   <Button color ='primary' size = 'sm'>Çıkış yap</Button>
-                  </DropdownItem>
-                  <DropdownItem divider />
-
-                </DropdownMenu>
-              </UncontrolledDropdown>
-
+              
               <Row>
                 <Col/> <Col/> <Col/> <Col/> <Col/> <Col/> 
                <Button onClick= {toggleB} size ='sm' id = 'login-button' >Giriş yap</Button>

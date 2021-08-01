@@ -4,6 +4,7 @@ import { useFormik } from "formik";
 import { FormGroup, Form, Label, Input, Button } from "reactstrap";
 import { JobSeekerServices } from '../../../../services/JobSeekerServices'
 import { useHistory } from "react-router-dom";
+import '../forms.css'
 const validationSchema = Yup.object({
   email: Yup.string().email().required("Email doğru biçimde girilmeli"),
   password: Yup.string()
@@ -38,7 +39,7 @@ export default function JobSeekerRegisterForm() {
   let jobSeekerServices = new JobSeekerServices();
   return (
     <div>
-      <Form onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit} className = "forms">
         <FormGroup>
           <Label>Email</Label> <br />
           <Input

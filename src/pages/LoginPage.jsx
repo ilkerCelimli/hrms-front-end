@@ -53,9 +53,9 @@ export default function LoginPage() {
       <br />
 
       <Button onClick={toggle} color="dark" size="sm">
-        {" "}
-        Kayıt Ol
+        Kayıt Ol 
       </Button>
+     
       <br />
     </div>
   );

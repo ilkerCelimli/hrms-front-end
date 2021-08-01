@@ -1,23 +1,44 @@
-import {oauth} from '../initalValues'
-import {OauthType, ROLE} from '../actions/OauthActions'
+import {
+   role
+} from '../actions/RoleActions';
+import {
+    initialRole
+} from '../InitialStates'
 const initialState = {
-    Oauth : oauth
+    ROLE: initialRole
 }
-export default function OauthReducer (state =initialState.Oauth , {type,payload} ){
 
-    switch (type) {
-        case ROLE.Admin:
+const oauth = role
+export default function OauthReducer(state = initialState, {
+    type,
+}) {
 
-            
-        
-            break;
+   switch (type) {
+       case "ADMIN":
+         
+      state.ROLE.Role = role.Admin
+
+           return {state}
+
+           
+   
+           case "EMPLOYER":
+               state.ROLE.Role = role.Employer
+            return {...state}
+
+
+            case "EMPLOYEE" : 
+            state.ROLE.Role = role.Employee
+
+            return {...state}
+
+       default:
+
+       return state.ROLE.Role = "VISITER"
+
+           
+   }
+
     
-        case ROLE.Employee:
-            let 
-
-
-        default:
-            break;
-    }
 
 }
