@@ -12,6 +12,6 @@ export default class EmployerService{
     }
 
     addJobAdvert(data) {
-        return axios.post("http://localhost:8081/api/v1/jobadvert/v1/addjobadvert/1",data)
+        return axios.post("http://localhost:8081/api/v1/jobadvert/v1/addjobadvert/2",data)
     }
 }

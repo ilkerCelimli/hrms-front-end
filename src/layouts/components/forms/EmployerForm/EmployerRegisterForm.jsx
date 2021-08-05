@@ -27,7 +27,7 @@ export default function EmployerRegisterForm() {
       userPassword: "",
     },
     validationSchema: validationSchema,
-    onSubmit: (values) => {},
+    onSubmit: (values) => {console.log(values)},
   });
   let employerService = new EmployerService();
   const history = useHistory();

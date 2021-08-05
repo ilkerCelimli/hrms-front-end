@@ -1,4 +1,3 @@
-import AdminPanel from '../../pages/AdminPanel'
 import {
     AdminRole,
     EmployeeRole,
@@ -13,7 +12,7 @@ const reducer = (state = default_role_state, type) => {
     switch (type) {
         case AdminRole:
 
-            return <AdminPanel/>
+            return state = AdminRole
 
 
 
