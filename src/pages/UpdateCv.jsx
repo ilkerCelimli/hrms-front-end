@@ -1,41 +1,52 @@
-import React , {useState} from 'react'
-import {Form,FormGroup,Label,Input,Button} from 'reactstrap'
-import CvServices from '../services/CvServices'
-import { useFormik } from 'formik';
+import { useState } from "react";
+import { Button , Input,Label } from "reactstrap";
+import CvServices from "../services/CvServices";
+import FileBase64 from 'react-file-base64'
+
 export default function UpdateCv() {
-   
-    const [file, setFile] = useState();
-  const [fileName, setFileName] = useState("");
-   
-
-const saveFile = (e) => {
-    setFile(e.target.files[0])
-    setFileName(e.target.files[0].names)
-};
-
-const uploadFile = async (e) => {
-    const formData = new FormData();
-    formData.append("file",file)
-    formData.append("fileName",fileName)
-
-    try {
-        const services = new CvServices();
-        const res = await services.updateCv(formData);
-        console.log(res)
-    }
-    catch(ex) {
-        console.log(ex)
-    }
-}
-
-       
+  // const [file, setFile] = useState(null);
+  // const [url,setUrl] = useState("");
+  // const saveFile = (f) => {
+  //   setFile(f);
     
+ // };
+  // const uploadFile = async () => {
+  //   try {
+  //     const services = new CvServices();
+  //     const response = await services.updateCv(file);
+  //     console.log("response: ", response);
+  //   } catch ({ message }) {
+  //     console.error(message || "unsuccesufully process.");
+  //   }
+  // };
 
-    return (
-        <div>
-         
-         <Input type = 'file' onChange = {saveFile} />
-         <Button type = 'submit' onClick = {uploadFile}>Kaydet</Button>
-        </div>
-    )
+    const [image, setImage ] = useState("");
+    const [ url, setUrl ] = useState("");
+    const uploadImage = () => {
+    const data = new FormData()
+    data.append("file", image)
+    data.append("upload_preset", "CvPhotos")
+    data.append("cloud_name","ilkerhrmsproject")
+
+    const services = new CvServices();
+    services.uploadCvPhoto(data).then(resp => resp.data).then(data => {setUrl(data.url)}).catch(err => console.log(err))
+      console.log(url)
 }
+
+  return (
+    <div>
+
+        
+      {/* <FileBase64 onDone={saveFile} /> */}
+      {/* <Button type="submit" onClick={uploadFile}>
+        Kaydet
+      </Button> */}
+
+      <Label>CV -----</Label>
+
+      <Input type = 'file' onChange= {(e)=> setImage(e.target.files[0])}/>
+      <Button onClick = {uploadImage} > Kaydet </Button>
+      {console.log(url)}
+    </div>
+  );
+    }
