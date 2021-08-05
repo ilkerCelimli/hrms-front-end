@@ -13,6 +13,8 @@ import EmployerRegisterForm from './layouts/components/forms/EmployerForm/Employ
 
 import {useSelector} from 'react-redux'
 import {AdminRole,EmployerRole,EmployeeRole} from './store/actions/RoleActions'
+import AddJobAdvert from './layouts/components/forms/EmployerForm/AddJobAdvertForm';
+import UpdateCv from './pages/UpdateCv';
   /* {isRoles === "admin" ? <Admin /> : isRoles === "jobSeeker" ? <JobSeeker /> : <Employer />} */
   
   export default function App() {
@@ -38,8 +40,11 @@ import {AdminRole,EmployerRole,EmployeeRole} from './store/actions/RoleActions'
             <Col>
               <Navbar/>
             </Col>
-        
+
+           
           </Row>
+
+          <UpdateCv/> 
         </Container>
 
         <Switch>
