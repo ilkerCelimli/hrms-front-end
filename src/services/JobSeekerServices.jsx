@@ -2,16 +2,16 @@ import axios from 'axios'
 
 export class JobSeekerServices {
 
-    addJobSeeker(data){
+  async  addJobSeeker(data){
 
-       return axios.post("http://localhost:8081/api/v1/jobseeker/v1/insert/", data)
+        return await axios.post("http://localhost:8081/api/v1/jobseeker/v1/insert/", data)
     }
 
-    addGithub(data,id) {
-        return axios.put("http://localhost:8081/api/v1/jobseeker/v1/githubAccount/"+ id + "/" , data)
+     async addGithub(data,id) {
+        return await axios.put("http://localhost:8081/api/v1/jobseeker/v1/githubAccount/"+ id + "/" , data)
     }
 
-    addLinkedLn(data,id){
-        return axios.put("http://localhost:8081/api/v1/jobseeker/v1/linkedlnAccount/" + id + '/' ,data)
+     async addLinkedLn(data,id){
+        return await axios.put("http://localhost:8081/api/v1/jobseeker/v1/linkedlnAccount/" + id + '/' ,data)
     }
 }

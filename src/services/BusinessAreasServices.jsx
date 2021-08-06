@@ -4,9 +4,9 @@ import axios from 'axios'
 export class BusinessAreasServices {
 
 
-    getAllBusinessAreas() {
+   async getAllBusinessAreas() {
 
-        return axios.get("http://localhost:8081/api/v1/businessareas/v1/getall")
+        return await axios.get("http://localhost:8081/api/v1/businessareas/v1/getall")
     }
 
 }
