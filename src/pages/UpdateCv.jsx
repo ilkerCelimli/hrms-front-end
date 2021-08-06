@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { Button, Input, Label } from "reactstrap";
+import { Button, Input, Label, Form, FormGroup } from "reactstrap";
 import CvServices from "../services/CvServices";
-import FileBase64 from "react-file-base64";
-
+import { useFormik } from "formik";
+import * as Yup from "yup";
 export default function UpdateCv() {
   // const [file, setFile] = useState(null);
   // const [url,setUrl] = useState("");
@@ -20,6 +20,29 @@ export default function UpdateCv() {
   //   }
   // };
 
+  const services = new CvServices();
+
+  const { values, handleChange, handleSubmit } = useFormik({
+    initialValues: {
+      gradiuationYear: "",
+      jobSeekerCollageDepartment: "",
+      jobSeekerDesciription: "",
+      jobSeekerExperience: "",
+      jobSeekerGithubAdress: "",
+      jobSeekerLinkedlnAdress: "",
+      jobSeekerName: "",
+      jobSeekerPhotoAdress: "",
+      jobSeekerSchool: "",
+      jobSeekerSurname: "",
+      nowJob: "",
+      schoolStartyear: "",
+    },
+    onSubmit: (values) => {
+      services.UpdateCv(values);
+      console.log(values);
+    },
+  });
+
   const [image, setImage] = useState("");
   const [url, setUrl] = useState("");
   const uploadImage = () => {
@@ -28,7 +51,6 @@ export default function UpdateCv() {
     data.append("upload_preset", "CvPhotos");
     data.append("cloud_name", "ilkerhrmsproject");
 
-    const services = new CvServices();
     services
       .uploadCvPhoto(data)
       .then((resp) => resp.data)
@@ -37,6 +59,7 @@ export default function UpdateCv() {
       })
       .catch((err) => console.log(err));
     console.log(url);
+    values.jobSeekerPhotoAdress = url;
   };
 
   return (
@@ -46,11 +69,101 @@ export default function UpdateCv() {
         Kaydet
       </Button> */}
 
-      <Label>CV -----</Label>
+      <Form onSubmit={handleSubmit}>
+        <FormGroup>
+          <Label>İsim : </Label>
+          <Input
+            type="text"
+            name="jobSeekerName"
+            placeholder="Name"
+            onChange={handleChange}
+          />
+        </FormGroup>
 
-      <Input type="file" onChange={(e) => setImage(e.target.files[0])} />
-      <Button onClick={uploadImage}> Kaydet </Button>
-      {console.log(url)}
+        <FormGroup>
+          <Label>Soysim</Label>
+          <Input
+            type="text"
+            name="jobSeekerSurname"
+            placeholder="Surname"
+            onChange={handleChange}
+          />
+        </FormGroup>
+
+        <FormGroup>
+          <Label>Tecrübeler</Label>
+          <Input
+            type="text-area"
+            name="jobSeekerExperience"
+            placeholder="Tecrübeler"
+            onChange={handleChange}
+          />
+        </FormGroup>
+
+        <FormGroup>
+          <Label>Mezun olunan Okul</Label>
+          <Input type="text" name="jobSeekerSchool" onChange={handleChange} />
+        </FormGroup>
+
+        <FormGroup>
+          <Label>Başlama tarihi</Label>
+          <Input type="text" name="schoolStartYear" onChange={handleChange} />
+        </FormGroup>
+        <FormGroup>
+          <Label>Bitirme tarihi</Label>
+          <Input type="text" name="gradiuationYear" onChange={handleChange} />
+        </FormGroup>
+
+        <FormGroup>
+          <Label>Okul Bölümü</Label>
+          <Input
+            type="text"
+            name="jobSeekerCollageDepartment"
+            onChange={handleChange}
+          />
+        </FormGroup>
+
+        <FormGroup>
+          <Label>Şimdiki işi</Label>
+          <Input type="text" name="nowJob" onChange={handleChange} />
+        </FormGroup>
+
+        <FormGroup>
+          <Label>Github linki</Label>
+          <Input
+            type="text"
+            name="jobSeekerGithubAdress"
+            onChange={handleChange}
+          />
+        </FormGroup>
+
+        <FormGroup>
+          <Label>Linkedln linki</Label>
+          <Input
+            type="text"
+            name="jobSeekerLinkedlnAdress"
+            onChange={handleChange}
+          />
+        </FormGroup>
+
+        <FormGroup>
+          <Label>Açıklama</Label>
+          <Input
+            type="text"
+            name="jobSeekerDesciription"
+            onChange={handleChange}
+          />
+        </FormGroup>
+
+        <FormGroup>
+        <Label>CV Fotoğraf</Label>
+          <Input type="file" onChange={(e) => setImage(e.target.files[0])} />
+          <Button onClick={uploadImage}> Fotoğraf Yükle. </Button>
+          {console.log(url)}
+        </FormGroup>
+        <Button type = 'submit'>Cv Kaydet</Button>
+      </Form>
+      
     </div>
   );
 }

@@ -6,7 +6,7 @@ export default class CvServices {
     }
 
     async UpdateCv(data) {
-        return await axios.post();
+        return await axios.post("http://localhost:8081/api/v1/jobseekercv/addCv/1/",data);
     }
  
 }
